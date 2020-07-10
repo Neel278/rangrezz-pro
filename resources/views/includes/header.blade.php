@@ -33,25 +33,25 @@
     <link rel="apple-touch-icon" sizes="72x72" href="{{asset('img/apple-touch-icon-72x72.png')}}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-touch-icon-76x76.png')}}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{asset('img/apple-touch-icon-114x114.png')}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="img/android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="img/manifest.json">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('img/apple-touch-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{asset('img/apple-touch-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('img/apple-touch-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/apple-touch-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('img/favicon-32x32.png')}}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{asset('img/android-chrome-192x192.png')}}" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{asset('img/favicon-96x96.png')}}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{asset('img/favicon-16x16.png')}}" sizes="16x16">
+    <link rel="manifest" href="{{asset('img/manifest.json')}}">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="img/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="css/animsition.min.css">
-    <link rel="stylesheet" type="text/css" href="css/grid.min.css" />
-    <link rel="stylesheet" href="css/3d.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/menu.css" />
-    <link rel="stylesheet" type="text/css" href="css/overlay.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="{{asset('css/animsition.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/grid.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/3d.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/menu.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/overlay.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/owl.carousel.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -60,8 +60,6 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js">
     </script>
-    <!--<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />-->
     <script src="https://kit.fontawesome.com/8f51f774c5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="datetimepicker/build/jquery.datetimepicker.min.css">
     <script src="datetimepicker/build/jquery.datetimepicker.full.min.js"></script>

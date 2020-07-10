@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small mdb-color pt-4">
+<footer class="page-footer font-small mdb-color pt-4 ">
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
@@ -134,13 +134,13 @@
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.matchHeight-min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/animsition.min.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery.matchHeight-min.js')}}"></script>
+<script src="{{asset('js/wow.min.js')}}"></script>
+<script src="{{asset('js/animsition.min.js')}}"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/jquery.parallax-scroll.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.cbpQTRotator.min.js"></script>
+<script src="{{asset('js/jquery.parallax-scroll.js')}}"></script>
+<script src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('js/jquery.cbpQTRotator.min.js')}}"></script>
 <script>
     $(document).ready(function() {
        
@@ -160,8 +160,8 @@
       $( '#cbp-qtrotator' ).cbpQTRotator();					
       });
 </script>
-<script src="js/functions.js"></script>
-<script src="js/particle.js"></script>
+<script src="{{asset('js/functions.js')}}"></script>
+<script src="{{asset('js/particle.js')}}"></script>
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-15815880-3']);
