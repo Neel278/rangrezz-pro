@@ -125,108 +125,53 @@ Rangrezz | Home
     </header>
     <div class="content clearfixs">
         {{-- ==================================== --}}
-        {{-- <div class="cube-container ">
-            <div class="photo-cube">
-                <img class="front" src="" alt="">
-                <div class="back photo-desc">
-                    <div class="headingbox">Menaka</div>
-                    <div class="para">
-                        Tallenge Menaka and Shakuntala - by Raja Ravi Varma - Large Canvas - Unframed (20 x 30 inches)
-                    </div>
-                    <a href="" class="button" data-toggle="modal" data-target="#exampleModal">know more</a>
-                </div>
-                <img class="left" src="" alt="">
-                <img class="right" src="{{asset('images/menaka.JPG')}}" alt="">
+        <?php
+        /**
+        * TODO: Fetching this details from database dynamically
+        */
+    $paintings_details = [
+        [
+            'name' => 'Menaka',
+            'description' => 'Tallenge Menaka and Shakuntala - by Raja Ravi Varma - Large Canvas - Unframed (20 x 30 inches)',
+            'painting_path' => 'images/menaka.JPG',
+            'painting_id' => 'exampleModal'
+        ],
+        [
+            'name' => 'Jatayu Vadh',
+            'description' => 'DollsofIndia Jatayu Vadh - Raja Ravi Varma Painting on Canvas - 33 x 19 inches (KQ91)',
+            'painting_path' => 'images/jatayu.jpg',
+            'painting_id' => 'exampleModal1'
+        ],
+        [
+            'name' => 'Kadambari',
+            'description' => '64 Arts Kadambari(Unframed Canvas Prints) -Raja Ravi Varma Paintings - 24" X 16"',
+            'painting_path' => 'images/kadambari.jpg',
+            'painting_id' => 'exampleModal2'
+        ],
+        [
+            'name' => 'Radha',
+            'description' => 'Tallenge Radha Krishna (Manini Radha) Raja Ravi Varma Mythology Collection Framed Poster (12 x 18 Inches)',
+            'painting_path' => 'images/radha.jpg',
+            'painting_id' => 'exampleModal3'
+        ],
+        [
+            'name' => 'Lakshmi',
+            'description' => 'Lakshmi by Raja Ravi Varma Small Size Premium Quality Unframed Wall Art Print On Canvas (9 inches x 12 inches)',
+            'painting_path' => 'images/Raja_Ravi_Varma,_Goddess_Lakshmi,_1896.jpg',
+            'painting_id' => 'exampleModal4'
+        ],
+    ]
+?>
+        @foreach ($paintings_details as $painting_details)
+
+        <x-modal :paintingDetails="$painting_details" />
+
+        @endforeach
+        {{-- ===================================== --}}
     </div>
-</div> --}}
-<x-modal></x-modal>
-{{-- ===================================== --}}
-
-<div class="cube-container">
-    <div class="photo-cube">
-        <img class="front" src="" alt="">
-        <div class="back photo-desc">
-            <div class="headingbox">Jatayu Vadh</div>
-            <div class="para">DollsofIndia Jatayu Vadh - Raja Ravi Varma Painting on Canvas - 33 x 19 inches
-                (KQ91)</div>
-            <a href="" class="button" data-toggle="modal" data-target="#exampleModal1">know more</a>
-        </div>
-        <img class="left" src="" alt="">
-        <img class="right" src="{{asset('images/jatayu.jpg')}}" alt="">
-    </div>
-</div>
-<div class="cube-container">
-    <div class="photo-cube">
-
-        <img class="front" src="" alt="">
-        <div class="back photo-desc">
-            <div class="headingbox">Kadambari</div>
-            <div class="para">64 Arts Kadambari(Unframed Canvas Prints) -Raja Ravi Varma Paintings - 24" X 16"
-            </div>
-            <a href="" class="button" data-toggle="modal" data-target="#exampleModal2">know more</a>
-        </div>
-        <img class="left" src="" alt="">
-        <img class="right" src="{{asset('images/kadambari.jpg')}}" alt="">
-
-    </div>
-</div>
-<div class="cube-container">
-    <div class="photo-cube">
-
-        <img class="front" src="" alt="">
-        <div class="back photo-desc">
-            <div class="headingbox">Radha</div>
-            <div class="para">Tallenge Radha Krishna (Manini Radha) Raja Ravi Varma Mythology Collection Framed
-                Poster (12 x 18 Inches)</div>
-            <a href="" class="button" data-toggle="modal" data-target="#exampleModal3">know more</a>
-        </div>
-        <img class="left" src="" alt="">
-        <img class="right" src="images/radha.jpg" alt="">
-
-    </div>
-</div>
-<div class="cube-container">
-    <div class="photo-cube">
-
-        <img class="front" src="" alt="">
-        <div class="back photo-desc">
-            <div class="headingbox">Lakshmi</div>
-            <div class="para">Lakshmi by Raja Ravi Varma Small Size Premium Quality Unframed Wall Art Print On
-                Canvas (9 inches x 12 inches) </div>
-            <a href="" class="button" data-toggle="modal" data-target="#exampleModal4">know more</a>
-        </div>
-        <img class="left" src="" alt="">
-        <img class="right" src="images/Raja_Ravi_Varma,_Goddess_Lakshmi,_1896.jpg" alt="">
-
-    </div>
-</div>
-<div class="cube-container">
-    <div class="photo-cube">
-
-        <img class="front" src="" alt="">
-        <div class="back photo-desc">
-            <div class="headingbox">Earth from Space</div>
-            <div class="para">Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus
-                commodo.</div>
-            <a href="" class="button" data-toggle="modal" data-target="#exampleModal5">download</a>
-        </div>
-        <img class="left" src="" alt="">
-        <img class="right" src="images/shakunatala.jpg" alt="">
-
-    </div>
-</div>
-
-
-</div>
-<!--content clear fix -->
+    <!--content clear fix -->
 </div>
 <!-- partial -->
-
-
-
-
-
-
 <div id="section-5">
     <div class="grid flex16">
         <div class="rows">
@@ -275,136 +220,6 @@ Rangrezz | Home
 <!-- END .animsition-overla -->
 <!--modals-->
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="images/menaka.JPG" class="img-fluid" alt="Responsive image">
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="gallery.html" role="button">Go to Auction</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="images/jatayu.jpg" class="img-fluid" alt="Responsive image">
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="gallery.html" role="button">Go to Auction</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="images/kadambari.jpg" class="img-fluid" alt="Responsive image">
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="gallery.html" role="button">Go to Auction</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="images/radha.jpg" class="img-fluid" alt="Responsive image">
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="gallery.html" role="button">Go to Auction</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="images/Raja_Ravi_Varma,_Goddess_Lakshmi,_1896.jpg" class="img-fluid" alt="Responsive image">
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="gallery.html" role="button">Go to Auction</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="images/shakunatala.jpg" class="img-fluid" alt="Responsive image">
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="gallery.html" role="button">Go to Auction</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-        </div>
-    </div>
-</div>
 <!--modals over-->
 @endsection
