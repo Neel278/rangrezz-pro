@@ -7,16 +7,36 @@ Rangrezz | Home
 @section('content')
 <div class="hero">
     <h1 id="title-1">Online Art Auction<em><span>R</span>ANGREZZ</em>Make the world beautiful with us.</h1>
-    <div class="social-btn-container"> <span class="social-btn-box"> <a
-                href="https://plus.google.com/116499013539302933204" class="google-plus-btn"><i
-                    class="fa fa-google-plus"></i></a> </span><!-- /.social-btn-box -->
-        <span class="social-btn-box"> <a href="https://www.facebook.com/Valeron-design-studio-245216518822368/"
-                class="facebook-btn"><i class="fa fa-facebook"></i></a> </span><!-- /.social-btn-box -->
-        <span class="social-btn-box"> <a href="https://twitter.com/ds_valeron" class="twitter-btn"><i
-                    class="fa fa-twitter"></i></a> </span><!-- /.social-btn-box -->
-        <span class="social-btn-box"> <a href="https://hr.linkedin.com/in/valeron-design-studio-37021a37"
-                class="linkedin-btn"><i class="fa fa-linkedin"></i></a> </span><!-- /.social-btn-box -->
-        <span class="social-btn-box"> <a href="#" class="youtube-btn"><i class="fa fa-youtube"></i></a> </span>
+    <div class="social-btn-container">
+        <span class="social-btn-box">
+            <a href="#" class="google-plus-btn">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </span>
+        <!-- /.social-btn-box -->
+        <span class="social-btn-box">
+            <a href="#" class="facebook-btn">
+                <i class="fa fa-facebook"></i>
+            </a>
+        </span>
+        <!-- /.social-btn-box -->
+        <span class="social-btn-box">
+            <a href="#" class="twitter-btn">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </span>
+        <!-- /.social-btn-box -->
+        <span class="social-btn-box">
+            <a href="#" class="linkedin-btn">
+                <i class="fa fa-linkedin"></i>
+            </a>
+        </span>
+        <!-- /.social-btn-box -->
+        <span class="social-btn-box">
+            <a href="#" class="youtube-btn">
+                <i class="fa fa-youtube"></i>
+            </a>
+        </span>
         <!-- /.social-btn-box -->
     </div>
     <!-- /.social-btn-container -->
@@ -42,7 +62,8 @@ Rangrezz | Home
         <div class="rows">
             <div class="colw_6 wow zoomIn">
                 <div class="wrapimg hack960">
-                    <div class="pic"> <img src="images/web-dizajn-1.png" class="pic-image full-width" alt="Pic" />
+                    <div class="pic">
+                        <img src="{{asset('images/web-dizajn-1.png')}}" class="pic-image full-width" alt="Pic" />
                         <div class="pic-caption top-to-bottom">
                             <h1 style="color:white; font-size: 2em; text-decoration: underline;">Saraswati</h1>
                             <p style="color:white;">The goddesses Saraswati, painted in 1896, are iconic in their
@@ -55,7 +76,6 @@ Rangrezz | Home
                                 Varma presented his goddesses in his own manner and with a specific intention in mind.
                             </p>
                             <button type="button" class="btn btn-light">Buy Now</button>
-
                         </div>
                     </div>
                 </div>
@@ -67,15 +87,22 @@ Rangrezz | Home
                 <div class="box66">
                     <div class="wrap icon"> <i class="fa fa-cog fa-spin"></i> <i class="fa fa-spin-reverse fa-cog"></i>
                         <i class="fa fa-cog fa-spin"></i> </div>
-                    <h3 class="center wow fadeInDown" data-wow-duration="0.5s" data-wow-delay="0.5s">About : The Story
+                    <h3 class="center wow fadeInDown" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                        About : The Story
                     </h3>
-                    <p>"Rangrez": the word which we have taken is basically a Persian word which means dyer, the person
-                        who dyes called "Rangrez",for unique identity we have used " Rangrezz"</p>
-                    <p>Rangrezz is a final year project which is created to help artists to sell their artworks at best
-                        price which they deserves.</p>
-                    <p>Rangrezz also provides the beginners to showcase their artwork at Rangrezz virtual Gallery</p>
-                    <div class="d-flex justify-content-center"><button type="button" class="btn btn-info">Visit
-                            Gallery</button></div>
+                    <p>
+                        "Rangrezz": the word which we have taken is basically a Persian word which means dyer, the
+                        person
+                        who dyes called "Rangrez",for unique identity we have used " Rangrezz"
+                    </p>
+                    <p>
+                        Rangrezz also provides the beginners to showcase their artwork at Rangrezz virtual Gallery
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-info">
+                            Visit Gallery
+                        </button>
+                    </div>
                 </div>
                 <!-- END box66 -->
             </div>
@@ -94,107 +121,104 @@ Rangrezz | Home
 
 <div class="container wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">
     <header class="main-header clearfixs">
-
         <h1 class="name">Current Auctions</h1>
     </header>
-
     <div class="content clearfixs">
-
-        <div class="cube-container ">
+        {{-- ==================================== --}}
+        {{-- <div class="cube-container ">
             <div class="photo-cube">
-
                 <img class="front" src="" alt="">
                 <div class="back photo-desc">
                     <div class="headingbox">Menaka</div>
-                    <div class="para">Tallenge Menaka and Shakuntala - by Raja Ravi Varma - Large Canvas - Unframed (20
-                        x 30 inches)</div>
+                    <div class="para">
+                        Tallenge Menaka and Shakuntala - by Raja Ravi Varma - Large Canvas - Unframed (20 x 30 inches)
+                    </div>
                     <a href="" class="button" data-toggle="modal" data-target="#exampleModal">know more</a>
                 </div>
                 <img class="left" src="" alt="">
-                <img class="right" src="images/menaka.JPG" alt="">
+                <img class="right" src="{{asset('images/menaka.JPG')}}" alt="">
+    </div>
+</div> --}}
+<x-modal></x-modal>
+{{-- ===================================== --}}
 
-            </div>
+<div class="cube-container">
+    <div class="photo-cube">
+        <img class="front" src="" alt="">
+        <div class="back photo-desc">
+            <div class="headingbox">Jatayu Vadh</div>
+            <div class="para">DollsofIndia Jatayu Vadh - Raja Ravi Varma Painting on Canvas - 33 x 19 inches
+                (KQ91)</div>
+            <a href="" class="button" data-toggle="modal" data-target="#exampleModal1">know more</a>
         </div>
+        <img class="left" src="" alt="">
+        <img class="right" src="{{asset('images/jatayu.jpg')}}" alt="">
+    </div>
+</div>
+<div class="cube-container">
+    <div class="photo-cube">
 
-        <div class="cube-container">
-            <div class="photo-cube">
-
-                <img class="front" src="" alt="">
-                <div class="back photo-desc">
-                    <div class="headingbox">Jatayu Vadh</div>
-                    <div class="para">DollsofIndia Jatayu Vadh - Raja Ravi Varma Painting on Canvas - 33 x 19 inches
-                        (KQ91)</div>
-                    <a href="" class="button" data-toggle="modal" data-target="#exampleModal1">know more</a>
-                </div>
-                <img class="left" src="" alt="">
-                <img class="right" src="images/jatayu.jpg" alt="">
-
+        <img class="front" src="" alt="">
+        <div class="back photo-desc">
+            <div class="headingbox">Kadambari</div>
+            <div class="para">64 Arts Kadambari(Unframed Canvas Prints) -Raja Ravi Varma Paintings - 24" X 16"
             </div>
+            <a href="" class="button" data-toggle="modal" data-target="#exampleModal2">know more</a>
         </div>
-        <div class="cube-container">
-            <div class="photo-cube">
-
-                <img class="front" src="" alt="">
-                <div class="back photo-desc">
-                    <div class="headingbox">Kadambari</div>
-                    <div class="para">64 Arts Kadambari(Unframed Canvas Prints) -Raja Ravi Varma Paintings - 24" X 16"
-                    </div>
-                    <a href="" class="button" data-toggle="modal" data-target="#exampleModal2">know more</a>
-                </div>
-                <img class="left" src="" alt="">
-                <img class="right" src="images/kadambari.jpg" alt="">
-
-            </div>
-        </div>
-        <div class="cube-container">
-            <div class="photo-cube">
-
-                <img class="front" src="" alt="">
-                <div class="back photo-desc">
-                    <div class="headingbox">Radha</div>
-                    <div class="para">Tallenge Radha Krishna (Manini Radha) Raja Ravi Varma Mythology Collection Framed
-                        Poster (12 x 18 Inches)</div>
-                    <a href="" class="button" data-toggle="modal" data-target="#exampleModal3">know more</a>
-                </div>
-                <img class="left" src="" alt="">
-                <img class="right" src="images/radha.jpg" alt="">
-
-            </div>
-        </div>
-        <div class="cube-container">
-            <div class="photo-cube">
-
-                <img class="front" src="" alt="">
-                <div class="back photo-desc">
-                    <div class="headingbox">Lakshmi</div>
-                    <div class="para">Lakshmi by Raja Ravi Varma Small Size Premium Quality Unframed Wall Art Print On
-                        Canvas (9 inches x 12 inches) </div>
-                    <a href="" class="button" data-toggle="modal" data-target="#exampleModal4">know more</a>
-                </div>
-                <img class="left" src="" alt="">
-                <img class="right" src="images/Raja_Ravi_Varma,_Goddess_Lakshmi,_1896.jpg" alt="">
-
-            </div>
-        </div>
-        <div class="cube-container">
-            <div class="photo-cube">
-
-                <img class="front" src="" alt="">
-                <div class="back photo-desc">
-                    <div class="headingbox">Earth from Space</div>
-                    <div class="para">Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus
-                        commodo.</div>
-                    <a href="" class="button" data-toggle="modal" data-target="#exampleModal5">download</a>
-                </div>
-                <img class="left" src="" alt="">
-                <img class="right" src="images/shakunatala.jpg" alt="">
-
-            </div>
-        </div>
-
+        <img class="left" src="" alt="">
+        <img class="right" src="{{asset('images/kadambari.jpg')}}" alt="">
 
     </div>
-    <!--content clear fix -->
+</div>
+<div class="cube-container">
+    <div class="photo-cube">
+
+        <img class="front" src="" alt="">
+        <div class="back photo-desc">
+            <div class="headingbox">Radha</div>
+            <div class="para">Tallenge Radha Krishna (Manini Radha) Raja Ravi Varma Mythology Collection Framed
+                Poster (12 x 18 Inches)</div>
+            <a href="" class="button" data-toggle="modal" data-target="#exampleModal3">know more</a>
+        </div>
+        <img class="left" src="" alt="">
+        <img class="right" src="images/radha.jpg" alt="">
+
+    </div>
+</div>
+<div class="cube-container">
+    <div class="photo-cube">
+
+        <img class="front" src="" alt="">
+        <div class="back photo-desc">
+            <div class="headingbox">Lakshmi</div>
+            <div class="para">Lakshmi by Raja Ravi Varma Small Size Premium Quality Unframed Wall Art Print On
+                Canvas (9 inches x 12 inches) </div>
+            <a href="" class="button" data-toggle="modal" data-target="#exampleModal4">know more</a>
+        </div>
+        <img class="left" src="" alt="">
+        <img class="right" src="images/Raja_Ravi_Varma,_Goddess_Lakshmi,_1896.jpg" alt="">
+
+    </div>
+</div>
+<div class="cube-container">
+    <div class="photo-cube">
+
+        <img class="front" src="" alt="">
+        <div class="back photo-desc">
+            <div class="headingbox">Earth from Space</div>
+            <div class="para">Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus
+                commodo.</div>
+            <a href="" class="button" data-toggle="modal" data-target="#exampleModal5">download</a>
+        </div>
+        <img class="left" src="" alt="">
+        <img class="right" src="images/shakunatala.jpg" alt="">
+
+    </div>
+</div>
+
+
+</div>
+<!--content clear fix -->
 </div>
 <!-- partial -->
 
