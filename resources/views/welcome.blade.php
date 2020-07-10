@@ -184,7 +184,7 @@ Rangrezz | Home
                     <p>There is no doubt that art is a great way of inspiration. Art provides a new direction of views
                         about different problems to the people who have an interest in art. Rangrezz having Virtual
                         painting Gallery ,Have a look once! </p>
-                    <a class="animsition-link vale" href="Image-Gallery/index2.html">Visit Virtual Gallery</a>
+                    <a class="animsition-link vale" href="{{route('gallery')}}">Visit Virtual Gallery</a>
                 </div>
                 <!-- END box66 -->
             </div>
@@ -192,9 +192,9 @@ Rangrezz | Home
 
             <div class="colw_6 hack960 paddbott100 wow zoomIn">
                 <div class="wrapimg">
-                    <div class="pic"> <img src="images/web-dizajn-3.jpg" class="pic-image full-width" alt="Pic" />
-                        <div class="pic-caption top-to-bottom"> <a class="animsition-link"
-                                href="Image-Gallery/index2.html">
+                    <div class="pic"> <img src="{{asset('images/web-dizajn-3.jpg')}}" class="pic-image full-width"
+                            alt="Pic" />
+                        <div class="pic-caption top-to-bottom"> <a class="animsition-link" href="{{route('gallery')}}">
                                 <button id="button" class="BT-OH-BR-R6-NF-FH-FP-TU-PT">
                                     <canvas id="canvas"></canvas>
                                     <hover></hover>
@@ -218,8 +218,4 @@ Rangrezz | Home
 
 </div>
 <!-- END .animsition-overla -->
-<!--modals-->
-<!-- Modal -->
-
-<!--modals over-->
 @endsection
