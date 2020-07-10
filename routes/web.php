@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
-
-Route::get('/image-gallery', 'ImageGalleryController@index')->name('image-gallery');
+})->name('index');
+Route::get('/image-gallery', function () {
+    return view('gallery.image-gallery');
+})->name('image-gallery');
