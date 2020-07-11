@@ -47,107 +47,276 @@
         <div id="gr-gallery" class="gr-gallery">
             <div class="gr-main">
                 {{-- ======================================== --}}
-                <?php
-                // TODO : fetch this details from todays top 10 painting table
-            
-            $paintings_details_for_image_gallery = [
-                [
-                    'painting_path' => 'gallery/images/images(1).jpg',
-                    'title' => 'Radha, 1900',
-                    'genre' => 'Mythological painting',
-                    'technique' => 'Acrylic',
-                    'material' => 'canvas',
-                    'dimensions'=>'96.52 x 66.68 cm',
-                    'gallery' => 'Ravi Varma Printing Press, Mumbai',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(10).jpg',
-                    'title' => 'Maharani Chimanbai,1902',
-                    'genre' => 'family portrait painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'91 x 152 cm',
-                    'gallery' => 'Maharaja Fateh Singh Museum, Lakshmi Vilas Palace, Vadodara (Baroda), Gujarat.',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(12).jpg',
-                    'title' => 'Radha Vilas, 1898',
-                    'genre' => 'Mythological painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'61 x 91.4 cm',
-                    'gallery' => 'Private Collection',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(13).jpg',
-                    'title' => 'Shakuntala , 1873',
-                    'genre' => 'Mythological painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'68.5 x 106.7 cm',
-                    'gallery' => 'Ravi Varma Printing Press, Mumbai',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(14).jpg',
-                    'title' => 'Shakuntala with friends, 1895',
-                    'genre' => 'Mythological painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'96.52 x 66.68 cm',
-                    'gallery' => 'Ravi Varma Printing Press, Mumbai',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(15).jpg',
-                    'title' => 'The Beautiful Lady Without Pity, 1893',
-                    'genre' => 'literary painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'81 x 112 cm',
-                    'gallery' => 'Ravi Varma Printing Press, Mumbai',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(16).jpg',
-                    'title' => 'Lord Dattatreya, 1893',
-                    'genre' => 'religious painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'127 x 66 cm',
-                    'gallery' => 'Ravi Varma Printing Press, Mumbai',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(17).jpg',
-                    'title' => 'Saraswati, 1882',
-                    'genre' => 'religious painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'116.52 x 79.06 cm',
-                    'gallery' => 'Ravi Varma Printing Press, Mumbai',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(18).jpg',
-                    'title' => 'Menaka & Shakunatala, 1888',
-                    'genre' => 'Mythological painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'96.52 x 66.68 cm',
-                    'gallery' => 'Ravi Varma Printing Press, Mumbai',
-                ],
-                [
-                    'painting_path' => 'gallery/images/images(19).jpg',
-                    'title' => 'Shakunatala, 1899',
-                    'genre' => 'Mythological painting',
-                    'technique' => 'oil',
-                    'material' => 'canvas',
-                    'dimensions'=>'188 x 95.9 cm',
-                    'gallery' => 'Ravi Varma Printing Press, Mumbai',
-                ],
-            ];
-            
-            ?>
-                @foreach ($paintings_details_for_image_gallery as $painting_details_for_image_gallery)
-                <x-painting-frame :paintingDetails="$painting_details_for_image_gallery" />
-                @endforeach
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(1).jpg')}}" alt="img01" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Radha, 1900</span></h2>
+                        <div>
+
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>Mythological painting</dd>
+                                <dt>Technique</dt>
+                                <dd>Acrylic</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Dimensions</dt>
+                                <dd>96.52 x 66.68 cm</dd>
+                                <dt>Gallery</dt>
+                                <dd>Ravi Varma Printing Press, Mumbai</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(1).jpg')}}" data-lightbox="example-1"
+                                        data-title="Radha"><button class="btn">click me</button></a>
+                                </dd>
+
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
                 {{-- ===================================================== --}}
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(10).jpg')}}" alt="img02" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Maharani Chimanbai,1902</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>family portrait painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Dimensions</dt>
+                                <dd>91 x 152 cm</dd>
+                                <dt>Gallery</dt>
+                                <dd>Maharaja Fateh Singh Museum, Lakshmi Vilas Palace, Vadodara (Baroda), Gujarat.</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(10).jpg')}}" data-lightbox="image-1"
+                                        data-title="Maharani Chimanbai"><button class="btn">click me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(12).jpg')}}" alt="img03" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Radha Vilas, 1898</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>Mythological painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Dimensions</dt>
+                                <dd>61 x 91.4 cm</dd>
+                                <dt>Gallery</dt>
+                                <dd>Private Collection</dd>
+                                <dt>click to see image:</dt>Ravi Varma Printing Press, Mumbai<dd>
+                                    <a href="{{asset('gallery/images/images(12).jpg')}}" data-lightbox="image-1"
+                                        data-title="Radha Vilas"><button class="btn">click me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <div id="smit">
+
+                        <img src="{{asset('gallery/images/images(13).jpg')}}" alt="img04" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Shakuntala , 1873</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>mythological painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Dimensions</dt>
+                                <dd>68.5 x 106.7 cm</dd>
+                                <dt>Gallery</dt>
+                                <dd>Ravi Varma Printing Press, Mumbai</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(13).jpg')}}" data-lightbox="image-1"
+                                        data-title="Shakuntala"><button class="btn">click me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(14).jpg')}}" alt="img01" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Shakuntala with friends, 1895</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>Mythological painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Gallery</dt>
+                                <dd>Ravi Varma Printing Press, Mumbai</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(14).jpg')}}" data-lightbox="image-1"
+                                        data-title="Shakuntala with friends"><button class="btn">click me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(15).jpg')}}" alt="img02" />
+                    </div>
+                    <figcaption>
+                        <h2><span>The Beautiful Lady Without Pity, 1893</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>literary painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Dimensions</dt>
+                                <dd>81 x 112 cm</dd>
+                                <dt>Gallery</dt>
+                                <dd>Ravi Varma Printing Press, Mumbai</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(15).jpg')}}" data-lightbox="image-1"
+                                        data-title="The Beautiful Lady Without Pity"><button class="btn">click
+                                            me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(16).jpg')}}" alt="img03" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Lord Dattatreya, 1893</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>religious painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Dimensions</dt>
+                                <dd>127 x 66 cm</dd>
+                                <dt>Gallery</dt>
+                                <dd>Ravi Varma Printing Press, Mumbai</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(16).jpg')}}" data-lightbox="image-1"
+                                        data-title="Lord Dattatreya"><button class="btn">click me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(17).jpg')}}" alt="img08" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Saraswati, 1882</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>religious painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Dimensions</dt>
+                                <dd>116.52 x 79.06 cm</dd>
+                                <dt>Gallery</dt>
+                                <dd>Ravi Varma Printing Press, Mumbai</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(17).jpg')}}" data-lightbox="image-1"
+                                        data-title="Saraswati"><button class="btn">click me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(18).jpg')}}" alt="img09" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Menaka & Shakunatala, 1888</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>mythological painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Gallery</dt>
+                                <dd>Ravi Varma Printing Press, Mumbai</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(18).jpg')}}" data-lightbox="image-1"
+                                        data-title="Menaka & Shakunatala"><button class="btn">click me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <div>
+                        <img src="{{asset('gallery/images/images(19).jpg')}}" alt="img10" />
+                    </div>
+                    <figcaption>
+                        <h2><span>Shakunatala, 1899</span></h2>
+                        <div>
+                            <dl>
+                                <dt>Genre</dt>
+                                <dd>mythological painting</dd>
+                                <dt>Technique</dt>
+                                <dd>oil</dd>
+                                <dt>Material</dt>
+                                <dd>canvas</dd>
+                                <dt>Dimensions</dt>
+                                <dd>188 x 95.9 cm</dd>
+                                <dt>Gallery</dt>
+                                <dd>Ravi Varma Printing Press, Mumbai</dd>
+                                <dt>click to see image:</dt>
+                                <dd>
+                                    <a href="{{asset('gallery/images/images(19).jpg')}}" data-lightbox="image-1"
+                                        data-title="Shakunatala"><button class="btn">click me</button></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </figcaption>
+                </figure>
             </div>
         </div>
     </div><!-- /container -->
