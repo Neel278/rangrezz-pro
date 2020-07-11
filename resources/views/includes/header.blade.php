@@ -43,7 +43,7 @@
     <link rel="icon" type="image/png" href="{{asset('img/favicon-16x16.png')}}" sizes="16x16">
     <link rel="manifest" href="{{asset('img/manifest.json')}}">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-TileImage" content="img/mstile-144x144.png">
+    <meta name="msapplication-TileImage" content="{{asset('img/mstile-144x144.png')}}">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{{asset('css/animsition.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/grid.min.css')}}" />
@@ -61,9 +61,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js">
     </script>
     <script src="https://kit.fontawesome.com/8f51f774c5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="datetimepicker/build/jquery.datetimepicker.min.css">
-    <script src="datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
-    <script src="validation.js"></script>
+    <link rel="stylesheet" href="{{asset('datetimepicker/build/jquery.datetimepicker.min.css')}}">
+    <script src="{{asset('datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
+    <script src="{{asset('validation.js')}}"></script>
     <style type="text/css">
         .fa .fa-envelope-square:hover {
             color: red;
@@ -84,13 +84,14 @@
     <div class="animsition-overlay">
         <div id="section-1">
             <header class="main_h">
-                <div class="menufix"> <a class="logo" href="index.php"><img src="images/rang.png" alt="Hello"
-                            style="width: 130px; height: 30px"></a>
+                <div class="menufix"> <a class="logo" href="{{route('index')}}"><img src="{{asset('images/rang.png')}}"
+                            alt="Hello" style="width: 130px; height: 30px"></a>
                     <div class="mobile-toggle"> <span></span> <span></span> <span></span> </div>
                     <nav>
                         <ul>
-                            <li><a class="out animsition-link" href="index.php">HOME</a></li>
-                            <li class="line"><a class="out animsition-link" href="Image-Gallery/index2.html">GALLERY</a>
+                            {{-- <li><a class="out animsition-link" href="index">HOME</a></li> --}}
+                            <li class="line"><a class="out animsition-link"
+                                    href="{{route('image-gallery')}}">GALLERY</a>
                             </li>
                             <li class="line"><a class="out animsition-link" href="auction.php">AUCTION</a></li>
                             <li class="line"><a class="out animsition-link" href="register.php">REGISTER</a></li>
