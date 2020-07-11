@@ -1,21 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('paintings.layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('title')
+Rangrezz | Auctions
+@endsection
 
-<body>
-    <h1>Rangrezz</h1>
+@section('content')
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>DASHBOARD</h2>
+        </div>
 
-    <ul>
-        @foreach ($paintings as $painting)
-        <li>{{ $painting }}</li>
-        @endforeach
-    </ul>
-</body>
+        <!-- Body Copy -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            Current Auctions
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Painting</th>
+                                        <th>Title</th>
+                                        <th>Starting price</th>
+                                        <th>Ending date</th>
+                                        <th>Bid</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($paintings as $painting)
+                                    <tr>
+                                        <td>
+                                            <img src="{{ $painting->painting }}" alt="painting"
+                                                style="height: 170px; width: 200px;">
+                                        </td>
+                                        <td>{{ $painting->title }}</td>
+                                        <td>{{ $painting->price }}</td>
+                                        <td>{{ date("d/m/y g:i A",strtotime($painting->end_date)) }}</td>
+                                        <td>
+                                            <a href="#">
+                                                <button type="button" class="btn btn-info">
+                                                    Bid
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Body Copy -->
+    </div>
+</section>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $('table').DataTable();
 
-</html>
+        $('.dataTables_length').css('display','none');
+    });
+</script>
+@endsection

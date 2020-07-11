@@ -8,8 +8,8 @@
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ auth()->user()->firstname." ".auth()->user()->lastname }}</div>
-                <div class="email">{{ auth()->user()->email }}</div>
+                    users firstname and lastname</div>
+                <div class="email">users email</div>
                 <!--<div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
@@ -36,31 +36,31 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('home') }}">
+                    <a href="#">
                         <i class="material-icons">account_box</i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('auction') }}">
+                    <a href="#">
                         <i class="material-icons">leaderboard</i>
                         <span>Auctions</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('add_auction')}}">
+                    <a href="#">
                         <i class="material-icons">playlist_add</i>
                         <span>Add Auction</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('activity') }}">
+                    <a href="#">
                         <i class="material-icons">history</i>
                         <span>Activity</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('settings') }}">
+                    <a href="#">
                         <i class="material-icons">settings_applications</i>
                         <span>Settings</span>
                     </a>
