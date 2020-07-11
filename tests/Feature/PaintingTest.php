@@ -19,17 +19,20 @@ class PaintingTest extends TestCase
         $response->assertStatus(200);
     }
     /** @test **/
-    public function a_user_can_register()
+    public function a_user_can_add_a_painting()
     {
         $this->withoutExceptionHandling();
+        $attributes = [
+            'title' => $this->faker->sentence,
+            'subtitle' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
+            'painting_pic' => $this->faker->image(),
+            'starting_price' => $this->faker->randomDigitNotNull,
+            'ending_date' => $this->faker->date(),
+        ];
+        $this->post('/paintings', $attributes)->assertRedirect('/paintings');
+        $this->assertDatabaseHas('paintings', $attributes);
 
-        $response = $this->get('/register');
-        $response->assertStatus(200);
-    }
-    /** @test **/
-    public function a_user_requires_a_lastname()
-    {
-        $this->withoutExceptionHandling();
-        $this->post('register', [])->assertSessionHasErrors('lastname');
+        $this->get('/paintings', $attributes)->assertSee($attributes['title']);
     }
 }
