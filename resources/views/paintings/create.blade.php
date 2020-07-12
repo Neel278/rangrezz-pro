@@ -22,10 +22,11 @@ Rangrezz | Add Auction
                     </div>
                     <div class="body">
                         <div class="row">
-                            {{-- @include('user.includes.messages') --}}
+                            @include('paintings.messages.messages')
                             <div class="col-md-4"></div>
                             <div class="col-md-4" style="padding: 2rem;">
-                                <form action="" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('store.painting') }}" method="post"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label>Title</label>
@@ -36,7 +37,7 @@ Rangrezz | Add Auction
                                     <div class="form-group">
                                         <label>Subtitle</label>
                                         <div class="form-line">
-                                            <input type="text" name="sub-title" class="form-control">
+                                            <input type="text" name="subtitle" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -48,20 +49,19 @@ Rangrezz | Add Auction
                                     <div class="form-group">
                                         <label>Upload a picture</label>
                                         <div class="form-line">
-                                            <input type="file" name="painting" class="form-control">
+                                            <input type="file" name="painting_pic" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Bidding Price </label>
                                         <div class="form-line">
-                                            <input type="text" name="price" class="form-control">
+                                            <input type="text" name="starting_price" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        {{ strtotime('+15 days',date("Y-m-d")) }}
                                         <label>Ending Date</label>
                                         <div class="form-line">
-                                            <input type="date" name="end_date" class="form-control">
+                                            <input type="date" name="ending_date" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">

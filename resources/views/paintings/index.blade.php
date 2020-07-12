@@ -36,7 +36,7 @@ Rangrezz | Auctions
                                     @forelse($paintings as $painting)
                                     <tr>
                                         <td>
-                                            <img src="{{ $painting->painting_pic }}" alt="painting"
+                                            <img src="{{ asset($painting->painting_pic) }}" alt="painting"
                                                 style="height: 170px; width: 200px;">
                                         </td>
                                         <td>{{ $painting->title }}</td>

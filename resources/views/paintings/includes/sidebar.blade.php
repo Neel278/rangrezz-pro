@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('add.painting')}}">
                         <i class="material-icons">playlist_add</i>
                         <span>Add Auction</span>
                     </a>

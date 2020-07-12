@@ -49,10 +49,12 @@ class PaintingsController extends Controller
             'title'             => 'required',
             'subtitle'          => 'required',
             'description'       => 'required',
-            'painting_pic'      => 'required',
             'starting_price'    => 'required',
             'ending_date'       => 'required',
         ]);
+        if (request('painting_pic')) {
+            $validAttr['painting_pic'] = 'storage/' . request('painting_pic')->store('paintings');
+        }
         // $validAttr['owner_id'] = auth()->id();
 
         auth()->user()->paintings()->create($validAttr);
