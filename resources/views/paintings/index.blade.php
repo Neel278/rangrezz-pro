@@ -33,7 +33,7 @@ Rangrezz | Auctions
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($paintings as $painting)
+                                    @forelse($paintings as $painting)
                                     <tr>
                                         <td>
                                             <img src="{{ $painting->painting_pic }}" alt="painting"
@@ -43,11 +43,13 @@ Rangrezz | Auctions
                                         <td>{{ $painting->starting_price }}$</td>
                                         <td>{{ date("d/m/y g:i A",strtotime($painting->ending_date)) }}</td>
                                         <td>
+                                            @if (auth()->id() !== $painting->owner_id)
                                             <a href="{{ $painting->path() }}">
                                                 <button type="button" class="btn btn-info">
                                                     Bid
                                                 </button>
                                             </a>
+                                            @endif
                                         </td>
                                     </tr>
                                     @empty

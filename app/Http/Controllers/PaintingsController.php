@@ -21,8 +21,9 @@ class PaintingsController extends Controller
 
     public function show(Paintings $painting)
     {
-        // $painting = Paintings::findOrFail(request('painting'));
-
+        // if (auth()->id() === $painting->owner_id) {
+        //     abort(403);
+        // }
         return view('paintings.show', compact('painting'));
     }
 

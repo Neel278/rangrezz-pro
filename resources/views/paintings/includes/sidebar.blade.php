@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('paintings') }}">
                         <i class="material-icons">leaderboard</i>
                         <span>Auctions</span>
                     </a>

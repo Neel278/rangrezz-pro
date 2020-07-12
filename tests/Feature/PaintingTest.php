@@ -11,7 +11,7 @@ class PaintingTest extends TestCase
     use RefreshDatabase, WithFaker;
 
     /** @test **/
-    public function an_unauthenticated_user_can_view_image_gallery()
+    public function guests_can_view_image_gallery()
     {
         $this->withoutExceptionHandling();
 
@@ -19,18 +19,29 @@ class PaintingTest extends TestCase
         $response->assertStatus(200);
     }
     /** @test **/
-    public function only_authenticated_user_can_add_paintings()
+    public function guests_cannot_add_paintings()
     {
         // $this->withoutExceptionHandling();
         $attributes = factory('App\Paintings')->raw();
         $this->post('/paintings', $attributes)->assertRedirect('login');
     }
     /** @test **/
+    public function guests_cannot_view_paintings()
+    {
+        $this->get('/paintings')->assertRedirect('login');
+    }
+    /** @test **/
+    public function guests_cannot_view_a_single_painting()
+    {
+        $painting = factory('App\Paintings')->create();
+        $this->get($painting->path())->assertRedirect('login');
+    }
+    /** @test **/
     public function a_user_can_add_a_painting()
     {
         $this->withoutExceptionHandling();
         $this->actingAs(factory('App\User')->create());
-        
+
         $attributes = [
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
@@ -45,9 +56,10 @@ class PaintingTest extends TestCase
         $this->get('/paintings', $attributes)->assertSee($attributes['title']);
     }
     /** @test **/
-    public function a_user_can_view_painting()
+    public function a_user_can_view_their_painting()
     {
         $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
         $painting = factory('App\Paintings')->create();
         $this->get($painting->path())
             ->assertSee($painting->title)

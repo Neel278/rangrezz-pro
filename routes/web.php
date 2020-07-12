@@ -21,9 +21,12 @@ Route::get('/image-gallery', function () {
     return view('gallery.image-gallery');
 })->name('image-gallery');
 
-Route::get('/paintings', 'PaintingsController@index')->name('paintings');
-Route::get('/paintings/{painting}', 'PaintingsController@show')->name('show.painting');
-Route::post('/paintings', 'PaintingsController@store')->name('store.painting')->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/paintings', 'PaintingsController@index')->name('paintings');
+    Route::get('/paintings/{painting}', 'PaintingsController@show')->name('show.painting');
+    Route::post('/paintings', 'PaintingsController@store')->name('store.painting');
+});
+
 
 Auth::routes();
 
