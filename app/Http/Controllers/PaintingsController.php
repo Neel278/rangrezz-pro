@@ -50,6 +50,7 @@ class PaintingsController extends Controller
             'subtitle'          => 'required',
             'description'       => 'required',
             'starting_price'    => 'required',
+            'painting_pic'      => 'required',
             'ending_date'       => 'required',
         ]);
         if (request('painting_pic')) {

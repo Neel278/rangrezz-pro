@@ -25,6 +25,7 @@ class PaintingTest extends TestCase
         $painting = factory('App\Paintings')->create();
 
         $this->get('/paintings')->assertRedirect('login');
+        $this->get('/paintings/create')->assertRedirect('login');
         $this->get($painting->path())->assertRedirect('login');
         $this->post('/paintings', $painting->toArray())->assertRedirect('login');
     }
@@ -40,7 +41,7 @@ class PaintingTest extends TestCase
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'painting_pic' => $this->faker->imageUrl(),
+            'painting_pic' => $this->faker->image('public/storage/paintings',640,480,null,false),
             'starting_price' => $this->faker->randomDigitNotNull,
             'ending_date' => $this->faker->date(),
         ];
