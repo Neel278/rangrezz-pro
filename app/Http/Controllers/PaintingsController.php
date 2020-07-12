@@ -19,9 +19,9 @@ class PaintingsController extends Controller
         return view('paintings.index', compact('paintings'));
     }
 
-    public function show()
+    public function show(Paintings $painting)
     {
-        $painting = Paintings::findOrFail(request('painting'));
+        // $painting = Paintings::findOrFail(request('painting'));
 
         return view('paintings.show', compact('painting'));
     }

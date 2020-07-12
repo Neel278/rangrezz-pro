@@ -36,11 +36,11 @@ class PaintingTest extends TestCase
         $this->get('/paintings', $attributes)->assertSee($attributes['title']);
     }
     /** @test **/
-    public function a_user_can_view_paintings()
+    public function a_user_can_view_painting()
     {
         $this->withoutExceptionHandling();
         $painting = factory('App\Paintings')->create();
-        $this->get('/paintings/' . $painting->id)
+        $this->get($painting->path())
             ->assertSee($painting->title)
             ->assertSee($painting->subtitle)
             ->assertSee($painting->description)

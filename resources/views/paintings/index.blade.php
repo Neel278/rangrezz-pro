@@ -40,10 +40,10 @@ Rangrezz | Auctions
                                                 style="height: 170px; width: 200px;">
                                         </td>
                                         <td>{{ $painting->title }}</td>
-                                        <td>{{ $painting->starting_price }}</td>
+                                        <td>{{ $painting->starting_price }}$</td>
                                         <td>{{ date("d/m/y g:i A",strtotime($painting->ending_date)) }}</td>
                                         <td>
-                                            <a href="#">
+                                            <a href="{{ $painting->path() }}">
                                                 <button type="button" class="btn btn-info">
                                                     Bid
                                                 </button>
