@@ -21,4 +21,5 @@ Route::get('/image-gallery', function () {
 })->name('image-gallery');
 
 Route::get('/paintings', 'PaintingsController@index');
+Route::get('/paintings/{painting}', 'PaintingsController@show');
 Route::post('/paintings', 'PaintingsController@store');

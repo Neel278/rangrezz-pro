@@ -19,10 +19,16 @@ class PaintingsController extends Controller
         return view('paintings.index', compact('paintings'));
     }
 
+    public function show()
+    {
+        $painting = Paintings::findOrFail(request('painting'));
+
+        return view('paintings.show', compact('painting'));
+    }
+
     public function store()
     {
-        // validate
-        request()->validate([
+        $validAttr = request()->validate([
             'title'             => 'required',
             'subtitle'          => 'required',
             'description'       => 'required',
@@ -30,8 +36,7 @@ class PaintingsController extends Controller
             'starting_price'    => 'required',
             'ending_date'       => 'required'
         ]);
-        //persist
-        Paintings::create(request(['title', 'subtitle', 'description', 'painting_pic', 'starting_price', 'ending_date']));
+        Paintings::create($validAttr);
         //redirect
         return redirect('/paintings');
     }

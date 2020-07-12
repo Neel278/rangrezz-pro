@@ -10,7 +10,7 @@ $factory->define(Paintings::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'subtitle' => $faker->sentence,
         'description' => $faker->paragraph,
-        'painting_pic' => $faker->image(),
+        'painting_pic' => $faker->imageUrl(),
         'starting_price' => $faker->randomDigitNotNull,
         'ending_date' => $faker->date(),
     ];

@@ -36,6 +36,19 @@ class PaintingTest extends TestCase
         $this->get('/paintings', $attributes)->assertSee($attributes['title']);
     }
     /** @test **/
+    public function a_user_can_view_paintings()
+    {
+        $this->withoutExceptionHandling();
+        $painting = factory('App\Paintings')->create();
+        $this->get('/paintings/' . $painting->id)
+            ->assertSee($painting->title)
+            ->assertSee($painting->subtitle)
+            ->assertSee($painting->description)
+            ->assertSee($painting->painting_pic)
+            ->assertSee($painting->starting_price)
+            ->assertSee($painting->ending_date);
+    }
+    /** @test **/
     public function a_painting_requires_a_title()
     {
         $attributes = factory('App\Paintings')->raw(['title' => '']);

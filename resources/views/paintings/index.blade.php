@@ -36,12 +36,12 @@ Rangrezz | Auctions
                                     @foreach ($paintings as $painting)
                                     <tr>
                                         <td>
-                                            <img src="{{ $painting->painting }}" alt="painting"
+                                            <img src="{{ $painting->painting_pic }}" alt="painting"
                                                 style="height: 170px; width: 200px;">
                                         </td>
                                         <td>{{ $painting->title }}</td>
-                                        <td>{{ $painting->price }}</td>
-                                        <td>{{ date("d/m/y g:i A",strtotime($painting->end_date)) }}</td>
+                                        <td>{{ $painting->starting_price }}</td>
+                                        <td>{{ date("d/m/y g:i A",strtotime($painting->ending_date)) }}</td>
                                         <td>
                                             <a href="#">
                                                 <button type="button" class="btn btn-info">
