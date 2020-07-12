@@ -38,37 +38,37 @@ class PaintingTest extends TestCase
     /** @test **/
     public function a_painting_requires_a_title()
     {
-        // $this->withoutExceptionHandling();
-        $this->post('/paintings', [])->assertSessionHasErrors('title');
+        $attributes = factory('App\Paintings')->raw(['title' => '']);
+        $this->post('/paintings', $attributes)->assertSessionHasErrors('title');
     }
     /** @test **/
     public function a_painting_requires_a_subtitle()
     {
-        // $this->withoutExceptionHandling();
-        $this->post('/paintings', [])->assertSessionHasErrors('subtitle');
+        $attributes = factory('App\Paintings')->raw(['subtitle' => '']);
+        $this->post('/paintings', $attributes)->assertSessionHasErrors('subtitle');
     }
     /** @test **/
     public function a_painting_requires_a_description()
     {
-        // $this->withoutExceptionHandling();
-        $this->post('/paintings', [])->assertSessionHasErrors('description');
+        $attributes = factory('App\Paintings')->raw(['description' => '']);
+        $this->post('/paintings', $attributes)->assertSessionHasErrors('description');
     }
     /** @test **/
     public function a_painting_requires_a_painting_pic()
     {
-        // $this->withoutExceptionHandling();
-        $this->post('/paintings', [])->assertSessionHasErrors('painting_pic');
+        $attributes = factory('App\Paintings')->raw(['painting_pic' => '']);
+        $this->post('/paintings', $attributes)->assertSessionHasErrors('painting_pic');
     }
     /** @test **/
     public function a_painting_requires_a_starting_price()
     {
-        // $this->withoutExceptionHandling();
-        $this->post('/paintings', [])->assertSessionHasErrors('starting_price');
+        $attributes = factory('App\Paintings')->raw(['starting_price' => '']);
+        $this->post('/paintings', $attributes)->assertSessionHasErrors('starting_price');
     }
     /** @test **/
     public function a_painting_requires_a_ending_date()
     {
-        // $this->withoutExceptionHandling();
-        $this->post('/paintings', [])->assertSessionHasErrors('ending_date');
+        $attributes = factory('App\Paintings')->raw(['ending_date' => '']);
+        $this->post('/paintings', $attributes)->assertSessionHasErrors('ending_date');
     }
 }
