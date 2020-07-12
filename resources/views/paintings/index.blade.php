@@ -33,7 +33,7 @@ Rangrezz | Auctions
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($paintings as $painting)
+                                    @forelse ($paintings as $painting)
                                     <tr>
                                         <td>
                                             <img src="{{ $painting->painting_pic }}" alt="painting"
@@ -50,7 +50,13 @@ Rangrezz | Auctions
                                             </a>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                    <tr>
+                                        <td>
+                                            <h4>No Paintings Avilable Right Now!!</h4>
+                                        </td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

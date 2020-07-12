@@ -19,14 +19,23 @@ class PaintingTest extends TestCase
         $response->assertStatus(200);
     }
     /** @test **/
+    public function only_authenticated_user_can_add_paintings()
+    {
+        // $this->withoutExceptionHandling();
+        $attributes = factory('App\Paintings')->raw();
+        $this->post('/paintings', $attributes)->assertRedirect('login');
+    }
+    /** @test **/
     public function a_user_can_add_a_painting()
     {
         $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        
         $attributes = [
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'painting_pic' => $this->faker->image(),
+            'painting_pic' => $this->faker->imageUrl(),
             'starting_price' => $this->faker->randomDigitNotNull,
             'ending_date' => $this->faker->date(),
         ];
@@ -51,36 +60,47 @@ class PaintingTest extends TestCase
     /** @test **/
     public function a_painting_requires_a_title()
     {
+        $this->actingAs(factory('App\User')->create());
         $attributes = factory('App\Paintings')->raw(['title' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('title');
     }
     /** @test **/
     public function a_painting_requires_a_subtitle()
     {
+        $this->actingAs(factory('App\User')->create());
+
         $attributes = factory('App\Paintings')->raw(['subtitle' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('subtitle');
     }
     /** @test **/
     public function a_painting_requires_a_description()
     {
+        $this->actingAs(factory('App\User')->create());
+
         $attributes = factory('App\Paintings')->raw(['description' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('description');
     }
     /** @test **/
     public function a_painting_requires_a_painting_pic()
     {
+        $this->actingAs(factory('App\User')->create());
+
         $attributes = factory('App\Paintings')->raw(['painting_pic' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('painting_pic');
     }
     /** @test **/
     public function a_painting_requires_a_starting_price()
     {
+        $this->actingAs(factory('App\User')->create());
+
         $attributes = factory('App\Paintings')->raw(['starting_price' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('starting_price');
     }
     /** @test **/
     public function a_painting_requires_a_ending_date()
     {
+        $this->actingAs(factory('App\User')->create());
+
         $attributes = factory('App\Paintings')->raw(['ending_date' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('ending_date');
     }

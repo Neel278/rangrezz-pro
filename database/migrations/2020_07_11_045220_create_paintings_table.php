@@ -15,6 +15,7 @@ class CreatePaintingsTable extends Migration
     {
         Schema::create('paintings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('owner_id');
             $table->string('title');
             $table->string('subtitle');
             $table->text('description');
@@ -22,6 +23,8 @@ class CreatePaintingsTable extends Migration
             $table->integer('starting_price');
             $table->string('ending_date');
             $table->timestamps();
+
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

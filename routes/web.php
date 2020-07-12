@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,8 @@ Route::get('/image-gallery', function () {
 
 Route::get('/paintings', 'PaintingsController@index')->name('paintings');
 Route::get('/paintings/{painting}', 'PaintingsController@show')->name('show.painting');
-Route::post('/paintings', 'PaintingsController@store')->name('store.painting');
+Route::post('/paintings', 'PaintingsController@store')->name('store.painting')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

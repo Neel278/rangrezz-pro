@@ -34,9 +34,12 @@ class PaintingsController extends Controller
             'description'       => 'required',
             'painting_pic'      => 'required',
             'starting_price'    => 'required',
-            'ending_date'       => 'required'
+            'ending_date'       => 'required',
         ]);
-        Paintings::create($validAttr);
+        // $validAttr['owner_id'] = auth()->id();
+
+        auth()->user()->paintings()->create($validAttr);
+
         //redirect
         return redirect('/paintings');
     }
