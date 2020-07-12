@@ -22,25 +22,19 @@ class PaintingTest extends TestCase
     public function guests_cannot_add_paintings()
     {
         // $this->withoutExceptionHandling();
-        $attributes = factory('App\Paintings')->raw();
-        $this->post('/paintings', $attributes)->assertRedirect('login');
-    }
-    /** @test **/
-    public function guests_cannot_view_paintings()
-    {
-        $this->get('/paintings')->assertRedirect('login');
-    }
-    /** @test **/
-    public function guests_cannot_view_a_single_painting()
-    {
         $painting = factory('App\Paintings')->create();
+
+        $this->get('/paintings')->assertRedirect('login');
         $this->get($painting->path())->assertRedirect('login');
+        $this->post('/paintings', $painting->toArray())->assertRedirect('login');
     }
     /** @test **/
     public function a_user_can_add_a_painting()
     {
         $this->withoutExceptionHandling();
         $this->actingAs(factory('App\User')->create());
+
+        $this->get('/paintings/create')->assertStatus(200);
 
         $attributes = [
             'title' => $this->faker->sentence,

@@ -23,6 +23,7 @@ Route::get('/image-gallery', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/paintings', 'PaintingsController@index')->name('paintings');
+    Route::get('/paintings/create', 'PaintingsController@create')->name('add.painting');
     Route::get('/paintings/{painting}', 'PaintingsController@show')->name('show.painting');
     Route::post('/paintings', 'PaintingsController@store')->name('store.painting');
 });

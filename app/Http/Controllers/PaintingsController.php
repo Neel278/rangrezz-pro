@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PaintingsController extends Controller
 {
     /**
-     * index
+     * fetching all the painting and passing to index page
      *
      * @return void
      */
@@ -19,14 +19,30 @@ class PaintingsController extends Controller
         return view('paintings.index', compact('paintings'));
     }
 
+    /**
+     * on show view showing only other users paintings
+     *
+     * @param  mixed $painting
+     * @return void
+     */
     public function show(Paintings $painting)
     {
-        if (auth()->id() === (int)$painting->owner_id) {
+        if (auth()->user()->is($painting->owner)) {
             abort(403);
         }
         return view('paintings.show', compact('painting'));
     }
 
+    public function create()
+    {
+        return view('paintings.create');
+    }
+
+    /**
+     * storing a new painting
+     *
+     * @return void
+     */
     public function store()
     {
         $validAttr = request()->validate([

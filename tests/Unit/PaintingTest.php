@@ -17,4 +17,11 @@ class PaintingTest extends TestCase
 
         $this->assertEquals('/paintings/' . $painting->id, $painting->path());
     }
+    /** @test **/
+    public function it_belongs_to_an_owner()
+    {
+        $this->withoutExceptionHandling();
+        $painting = factory('App\Paintings')->create();
+        $this->assertInstanceOf('App\User', $painting->owner);
+    }
 }
