@@ -56,7 +56,7 @@ class PaintingTest extends TestCase
         $this->get('/paintings', $attributes)->assertSee($attributes['title']);
     }
     /** @test **/
-    public function a_user_can_view_their_painting()
+    public function a_user_can_bid_others_painting()
     {
         $this->withoutExceptionHandling();
         $this->actingAs(factory('App\User')->create());
@@ -68,6 +68,14 @@ class PaintingTest extends TestCase
             ->assertSee($painting->painting_pic)
             ->assertSee($painting->starting_price)
             ->assertSee($painting->ending_date);
+    }
+    /** @test **/
+    public function an_authenticated_user_cannot_bid_their_paintings()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create(['owner_id' => auth()->id()]);
+        $this->get($painting->path())->assertStatus(403);
     }
     /** @test **/
     public function a_painting_requires_a_title()

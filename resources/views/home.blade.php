@@ -1,23 +1,37 @@
-@extends('layouts.app')
+@extends('paintings.layouts.master')
+
+@section('title')
+Rangrezz | Dashboard
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>DASHBOARD</h2>
+        </div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <!-- Body Copy -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            BODY COPY
+                        </h2>
 
-                    {{ __('You are logged in!') }}
+                    </div>
+                    <div class="body">
+                        <h1 style="text-align: center; text-transform: uppercase;">
+                            {{"Welcome ,".auth()->user()->username."!" }}</h1>
+                        <p>
+
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- #END# Body Copy -->
     </div>
-</div>
+</section>
 @endsection
