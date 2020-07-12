@@ -72,8 +72,8 @@ class PaintingTest extends TestCase
     /** @test **/
     public function an_authenticated_user_cannot_bid_their_paintings()
     {
-        $this->withoutExceptionHandling();
-        $this->actingAs(factory('App\User')->create());
+        $this->be(factory('App\User')->create());
+        // $this->withoutExceptionHandling();
         $painting = factory('App\Paintings')->create(['owner_id' => auth()->id()]);
         $this->get($painting->path())->assertStatus(403);
     }
