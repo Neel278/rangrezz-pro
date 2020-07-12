@@ -35,4 +35,40 @@ class PaintingTest extends TestCase
 
         $this->get('/paintings', $attributes)->assertSee($attributes['title']);
     }
+    /** @test **/
+    public function a_painting_requires_a_title()
+    {
+        // $this->withoutExceptionHandling();
+        $this->post('/paintings', [])->assertSessionHasErrors('title');
+    }
+    /** @test **/
+    public function a_painting_requires_a_subtitle()
+    {
+        // $this->withoutExceptionHandling();
+        $this->post('/paintings', [])->assertSessionHasErrors('subtitle');
+    }
+    /** @test **/
+    public function a_painting_requires_a_description()
+    {
+        // $this->withoutExceptionHandling();
+        $this->post('/paintings', [])->assertSessionHasErrors('description');
+    }
+    /** @test **/
+    public function a_painting_requires_a_painting_pic()
+    {
+        // $this->withoutExceptionHandling();
+        $this->post('/paintings', [])->assertSessionHasErrors('painting_pic');
+    }
+    /** @test **/
+    public function a_painting_requires_a_starting_price()
+    {
+        // $this->withoutExceptionHandling();
+        $this->post('/paintings', [])->assertSessionHasErrors('starting_price');
+    }
+    /** @test **/
+    public function a_painting_requires_a_ending_date()
+    {
+        // $this->withoutExceptionHandling();
+        $this->post('/paintings', [])->assertSessionHasErrors('ending_date');
+    }
 }

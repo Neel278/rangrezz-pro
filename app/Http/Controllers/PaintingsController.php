@@ -22,6 +22,14 @@ class PaintingsController extends Controller
     public function store()
     {
         // validate
+        request()->validate([
+            'title'             => 'required',
+            'subtitle'          => 'required',
+            'description'       => 'required',
+            'painting_pic'      => 'required',
+            'starting_price'    => 'required',
+            'ending_date'       => 'required'
+        ]);
         //persist
         Paintings::create(request(['title', 'subtitle', 'description', 'painting_pic', 'starting_price', 'ending_date']));
         //redirect

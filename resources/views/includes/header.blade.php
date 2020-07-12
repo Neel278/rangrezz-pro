@@ -94,9 +94,9 @@
                                     href="{{route('image-gallery')}}">GALLERY</a>
                             </li>
                             <li class="line"><a class="out animsition-link" href="auction.php">AUCTION</a></li>
-                            <li class="line"><a class="out animsition-link" href="{{ route('register') }}">REGISTER</a>
+                            <li class="line"><a class="out animsition-link" href="#">REGISTER</a>
                             </li>
-                            <li class="line"><a class="out animsition-link" href="{{ route('login') }}">LOGIN</a></li>
+                            <li class="line"><a class="out animsition-link" href="#">LOGIN</a></li>
                             <li class="line"><a class="out animsition-link" href="contact.php">CONTACT</a></li>
                         </ul>
                     </nav>
