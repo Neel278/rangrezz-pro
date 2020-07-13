@@ -75,7 +75,7 @@
             box-shadow: 19px 19px 50px -17px rgba(0, 0, 0, 0.5);
         }
     </style>
-
+    <livewire:styles>
 </head>
 
 <body>

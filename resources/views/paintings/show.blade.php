@@ -43,26 +43,8 @@ Rangrezz | Buy Painting
                                                 {{ $painting->description }}
                                                 <h5>Ending On:</h5>
                                                 <p>{{ $painting->ending_date }}</p>
-                                                <h5>Current Highest bid :</h5>
-                                                <p>
-                                                    {{ $painting->bidded_price > 0 ? $painting->bidded_price : $painting->starting_price }}$
-                                                </p>
-                                                <form method="post" action="">
-                                                    @csrf
-                                                    <label for="bid">
-                                                        Bid
-                                                    </label>
-                                                    <div class="form-group">
-                                                        <div class="form-line">
-                                                            <input type="number"
-                                                                min="{{ $painting->bidded_price > 0 ? $painting->bidded_price + 1: $painting->starting_price +1 }}"
-                                                                value="{{ $painting->bidded_price > 0 ? $painting->bidded_price + 1: $painting->starting_price + 1}}"
-                                                                name="bidamount" class="form-control" />
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" id="bid" class="btn btn-info"
-                                                        name="bid">Bid</button>
-                                                </form>
+
+                                                @livewire('add-new-bid',['painting'=>$painting])
                                             </div>
                                         </div>
                                     </div>

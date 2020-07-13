@@ -39,6 +39,7 @@
 
 <!-- Demo Js -->
 <script src="{{asset('dashboard-asset/js/demo.js')}}"></script>
+@livewireScripts
 </body>
 
 </html>

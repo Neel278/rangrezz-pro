@@ -41,7 +41,7 @@ class PaintingTest extends TestCase
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'painting_pic' => $this->faker->image('public/storage/paintings',640,480,null,false),
+            'painting_pic' => $this->faker->image('public/storage/paintings', 640, 480, null, false),
             'starting_price' => $this->faker->randomDigitNotNull,
             'ending_date' => $this->faker->date(),
         ];
@@ -119,4 +119,11 @@ class PaintingTest extends TestCase
         $attributes = factory('App\Paintings')->raw(['ending_date' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('ending_date');
     }
+    /** @test **/
+    // public function an_authenticated_user_can_add_their_bids()
+    // {
+    //     $this->withoutExceptionHandling();
+    //     $this->actingAs(factory('App\User')->create());
+    //     $painting = factory('App\Paintings')->create();
+    // }
 }

@@ -21,6 +21,7 @@ class CreatePaintingsTable extends Migration
             $table->text('description');
             $table->string('painting_pic');
             $table->integer('starting_price');
+            $table->integer('bidding_price')->default('0');
             $table->string('ending_date');
             $table->timestamps();
 
