@@ -43,7 +43,6 @@ Rangrezz | Buy Painting
                                                 {{ $painting->description }}
                                                 <h5>Ending On:</h5>
                                                 <p>{{ $painting->ending_date }}</p>
-
                                                 @livewire('add-new-bid',['painting'=>$painting])
                                             </div>
                                         </div>

@@ -2,9 +2,12 @@
 
 namespace Tests\Feature;
 
+use App\Http\Livewire\AddNewBid;
+use App\Paintings;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Livewire;
 
 class PaintingTest extends TestCase
 {
@@ -120,10 +123,23 @@ class PaintingTest extends TestCase
         $this->post('/paintings', $attributes)->assertSessionHasErrors('ending_date');
     }
     /** @test **/
-    // public function an_authenticated_user_can_add_their_bids()
-    // {
-    //     $this->withoutExceptionHandling();
-    //     $this->actingAs(factory('App\User')->create());
-    //     $painting = factory('App\Paintings')->create();
-    // }
+    public function an_authenticated_user_can_see_livewire()
+    {
+        // $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create();
+        $this->get($painting->path())->assertSeeLivewire('add-new-bid');
+    }
+    /** @test **/
+    public function an_authenticated_user_can_update_bidding_price()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create();
+        // dd($painting);
+        Livewire::test('add-new-bid', ['painting' => $painting])
+            ->set('newBid', $painting->starting_price + 2)
+            ->call('submit')
+            ->assertSee('Bidded successfully updated.');
+    }
 }

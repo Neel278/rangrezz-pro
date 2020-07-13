@@ -15,6 +15,7 @@ $factory->define(Paintings::class, function (Faker $faker) {
         'description' => $faker->paragraph,
         'painting_pic' => $faker->imageUrl(),
         'starting_price' => $faker->randomDigitNotNull,
+        'bidding_price' => 0,
         'ending_date' => $faker->date(),
     ];
 });

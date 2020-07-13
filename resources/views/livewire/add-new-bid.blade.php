@@ -11,7 +11,8 @@
         <div class="form-group">
             <div class="form-line">
                 <input type="number"
-                    min="{{ $painting->bidding_price > 0 ? $painting->bidding_price + 1: $painting->starting_price +1 }}"
+                    {{-- min="{{ $painting->bidding_price > 0 ? $painting->bidding_price + 1: $painting->starting_price +1 }}"
+                    --}}
                     value="{{ $painting->bidding_price > 0 ? $painting->bidding_price + 1: $painting->starting_price + 1}}"
                     name="bidamount" wire:model="newBid" class="form-control" />
             </div>
@@ -20,4 +21,14 @@
             Bid
         </button>
     </form>
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+    @endif
+    @if (session()->has('error-message'))
+    <div class="alert alert-danger">
+        {{ session('error-message') }}
+    </div>
+    @endif
 </div>
