@@ -27,8 +27,9 @@ Rangrezz | Auctions
                                     <tr>
                                         <th>Painting</th>
                                         <th>Title</th>
-                                        <th>Starting price</th>
+                                        <th>Price</th>
                                         <th>Ending date</th>
+                                        <th>Like</th>
                                         <th>Bid</th>
                                     </tr>
                                 </thead>
@@ -42,15 +43,20 @@ Rangrezz | Auctions
                                         <td>{{ $painting->title }}</td>
                                         <td>{{ $painting->starting_price }}$</td>
                                         <td>{{ date("d/m/y g:i A",strtotime($painting->ending_date)) }}</td>
+                                        @if (auth()->id() !== $painting->owner_id)
                                         <td>
-                                            @if (auth()->id() !== $painting->owner_id)
+                                            {{-- <a href="#"><i class="material-icons">favorite</i></a> --}}
+
+                                            <a href="#"><i class="material-icons">favorite_border</i></a>
+                                        </td>
+                                        <td>
                                             <a href="{{ $painting->path() }}">
                                                 <button type="button" class="btn btn-info">
                                                     Bid
                                                 </button>
                                             </a>
-                                            @endif
                                         </td>
+                                        @endif
                                     </tr>
                                     @empty
                                     <tr>
