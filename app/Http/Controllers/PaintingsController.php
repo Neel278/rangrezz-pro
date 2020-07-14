@@ -14,7 +14,7 @@ class PaintingsController extends Controller
      */
     public function index()
     {
-        $paintings = Paintings::all();
+        $paintings = Paintings::latest()->get();
 
         return view('paintings.index', compact('paintings'));
     }
