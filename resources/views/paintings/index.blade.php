@@ -45,7 +45,7 @@ Rangrezz | Auctions
                                         <td>{{ $painting->starting_price }}$</td>
                                         <td>{{ date("d/m/y g:i A",strtotime($painting->ending_date)) }}</td>
                                         @if (auth()->id() !== $painting->owner_id)
-                                        @livewire('add-like',['painting'=>$painting,'likes'=>$likes])
+                                        @livewire('add-like',['painting_id'=>$painting->id])
                                         <td>
                                             <a href="{{ $painting->path() }}">
                                                 <button type="button" class="btn btn-info">

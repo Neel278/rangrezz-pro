@@ -9,20 +9,15 @@ use Livewire\Component;
 class AddLike extends Component
 {
     public $painting_id;
-    public $painting;
-    public $likes;
-    public function mount($painting, $likes)
+    public function mount($painting_id)
     {
-        $this->painting = $painting;
-        $this->painting_id = $painting->id;
-        $this->likes = $likes;
+        $this->painting_id = $painting_id;
     }
     public function likes()
     {
         $like = DB::table('likes')->where([['user_id', auth()->id()], ['painting_id', $this->painting_id]])->first();
         if ($like) {
             Like::where('id', $like->id)->delete();
-            // dd($like);
         } else {
             Like::create([
                 'user_id' => auth()->id(),
