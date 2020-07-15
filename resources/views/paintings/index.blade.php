@@ -34,6 +34,7 @@ Rangrezz | Auctions
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{-- {{dd($likes)}} --}}
                                     @forelse($paintings as $painting)
                                     <tr>
                                         <td>
@@ -44,11 +45,7 @@ Rangrezz | Auctions
                                         <td>{{ $painting->starting_price }}$</td>
                                         <td>{{ date("d/m/y g:i A",strtotime($painting->ending_date)) }}</td>
                                         @if (auth()->id() !== $painting->owner_id)
-                                        <td>
-                                            {{-- <a href="#"><i class="material-icons">favorite</i></a> --}}
-
-                                            <a href="#"><i class="material-icons">favorite_border</i></a>
-                                        </td>
+                                        @livewire('add-like',['painting'=>$painting,'likes'=>$likes])
                                         <td>
                                             <a href="{{ $painting->path() }}">
                                                 <button type="button" class="btn btn-info">

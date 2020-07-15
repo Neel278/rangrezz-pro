@@ -40,4 +40,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Paintings::class, 'owner_id');
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }

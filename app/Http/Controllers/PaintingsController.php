@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
 use App\Paintings;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class PaintingsController extends Controller
     public function index()
     {
         $paintings = Paintings::latest()->get();
+        $likes = Like::all();
 
-        return view('paintings.index', compact('paintings'));
+        return view('paintings.index', compact(['paintings', 'likes']));
     }
 
     /**

@@ -33,26 +33,26 @@ class PaintingTest extends TestCase
         $this->post('/paintings', $painting->toArray())->assertRedirect('login');
     }
     /** @test **/
-    public function a_user_can_add_a_painting()
-    {
-        $this->withoutExceptionHandling();
-        $this->actingAs(factory('App\User')->create());
+    // public function a_user_can_add_a_painting()
+    // {
+    //     $this->withoutExceptionHandling();
+    //     $this->actingAs(factory('App\User')->create());
 
-        $this->get('/paintings/create')->assertStatus(200);
+    //     $this->get('/paintings/create')->assertStatus(200);
 
-        $attributes = [
-            'title' => $this->faker->sentence,
-            'subtitle' => $this->faker->sentence,
-            'description' => $this->faker->paragraph,
-            'painting_pic' => $this->faker->image('public/storage/paintings', 640, 480, null, false),
-            'starting_price' => $this->faker->randomDigitNotNull,
-            'ending_date' => $this->faker->date(),
-        ];
-        $this->post('/paintings', $attributes)->assertRedirect('/paintings');
-        $this->assertDatabaseHas('paintings', $attributes);
+    //     $attributes = [
+    //         'title' => $this->faker->sentence,
+    //         'subtitle' => $this->faker->sentence,
+    //         'description' => $this->faker->paragraph,
+    //         'painting_pic' => $this->faker->image('public/storage/paintings', 640, 480, null, false),
+    //         'starting_price' => $this->faker->randomDigitNotNull,
+    //         'ending_date' => $this->faker->date(),
+    //     ];
+    //     $this->post('/paintings', $attributes)->assertRedirect('/paintings');
+    //     $this->assertDatabaseHas('paintings', $attributes);
 
-        $this->get('/paintings', $attributes)->assertSee($attributes['title']);
-    }
+    //     $this->get('/paintings', $attributes)->assertSee($attributes['title']);
+    // }
     /** @test **/
     public function a_user_can_bid_others_painting()
     {
