@@ -27,6 +27,8 @@ class PaintingTest extends TestCase
         // $this->withoutExceptionHandling();
         $painting = factory('App\Paintings')->create();
 
+        $this->get('/settings')->assertRedirect('login');
+
         $this->get('/paintings')->assertRedirect('login');
         $this->get('/paintings/create')->assertRedirect('login');
         $this->get($painting->path())->assertRedirect('login');
@@ -121,5 +123,12 @@ class PaintingTest extends TestCase
 
         $attributes = factory('App\Paintings')->raw(['ending_date' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('ending_date');
+    }
+    /** @test **/
+    public function an_authenticated_user_can_see_settings_page()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $this->get('/settings')->assertStatus(200);
     }
 }

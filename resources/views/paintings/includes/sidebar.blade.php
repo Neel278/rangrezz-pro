@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('settings') }}">
                         <i class="material-icons">settings_applications</i>
                         <span>Settings</span>
                     </a>
