@@ -54,7 +54,7 @@ Rangrezz | Settings
                 <h4 class="modal-title" id="defaultModalLabel">Change Details</h4>
             </div>
             <div class="modal-body">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('settings.basic') }}">
                     @csrf
                     @method('PATCH')
                     <div class="form-group">

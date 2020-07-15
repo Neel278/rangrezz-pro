@@ -30,4 +30,13 @@ class UserTest extends TestCase
             ->assertSee(auth()->user()->address)
             ->assertSee(auth()->user()->email);
     }
+    /** @test **/
+    public function an_autheticated_user_can_change_basic_details()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs($user = factory('App\User')->create());
+        $this->get('/settings')->assertStatus(200);
+        $user->username = 'thakkar123';
+        $this->patch('/settings/basic', $user->toArray())->assertRedirect('/settings');
+    }
 }

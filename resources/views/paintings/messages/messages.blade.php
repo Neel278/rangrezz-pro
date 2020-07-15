@@ -12,9 +12,9 @@
 </div>
 @endif
 
-@if(Session::has('success_profile'))
+@if(Session::has('success_basic'))
 <div class="alert alert-success">
-    {{ Session::get('success_profile') }}
+    {{ Session::get('success_basic') }}
 </div>
 @endif
 

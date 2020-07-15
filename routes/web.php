@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/paintings', 'PaintingsController@store')->name('store.painting');
 
     Route::get('/settings', 'UserSettingsController@index')->name('settings');
+    Route::patch('/settings/basic', 'UserSettingsController@basicSettingsUpdate')->name('settings.basic');
 });
 
 
