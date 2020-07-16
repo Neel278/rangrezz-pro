@@ -158,7 +158,7 @@ Rangrezz | Settings
                                 }
                             }
                 </script>
-                <form class="p-5" action="" method="post" name="myForm">
+                <form class="p-5" action="{{ route('settings.password') }}" method="post" name="myForm">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

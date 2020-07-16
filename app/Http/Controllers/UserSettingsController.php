@@ -52,6 +52,11 @@ class UserSettingsController extends Controller
             return redirect()->back()->withErrors(['email_password_wrong' => 'Please Enter Correct Password !!']);
         }
     }
+    /**
+     * To update new user password with old password confirmation
+     *
+     * @return void
+     */
     public function passwordSettingsUpdate()
     {
         // dd(request()->all());
@@ -59,11 +64,12 @@ class UserSettingsController extends Controller
             'new_password' => ['required', 'string', 'min:8'],
         ]));
         $user = User::find(auth()->id())->first();
+        // dd(Hash::check('password123', $user->password));
         if (request('pass') == request('pass_confirmation')) {
             if (Hash::check(request('pass'), $user->password)) {
                 if (!Hash::check(request('new_password'), $user->password)) {
                     $user->update([
-                        'password' => $validAttr['new_password'],
+                        'password' => bcrypt($validAttr['new_password']),
                     ]);
                     return redirect()->back()->with('success_password', 'Details Updated Successfully !!');
                 } else {
