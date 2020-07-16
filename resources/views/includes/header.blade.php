@@ -93,11 +93,26 @@
                             <li class="line"><a class="out animsition-link"
                                     href="{{route('image-gallery')}}">GALLERY</a>
                             </li>
-                            <li class="line"><a class="out animsition-link" href="{{route('paintings')}}">AUCTION</a>
+                            @auth
+                            <li class="line"><a class="out animsition-link" href="{{ route('home') }}">DASHBOARD</a>
                             </li>
+                            <li class="line">
+                                <form action="/logout" method="post" id="logout-form1">
+                                    @csrf
+                                    <a href="javascript:$('#logout-form1').submit();" class="logout out animsition-link"
+                                        type="submit">
+                                        LOGOUT
+                                    </a>
+                                </form>
+                            </li>
+                            @else
                             <li class="line"><a class="out animsition-link" href="{{ route('register') }}">REGISTER</a>
                             </li>
                             <li class="line"><a class="out animsition-link" href="{{ route('login') }}">LOGIN</a></li>
+                            @endauth
+                            <li class="line"><a class="out animsition-link" href="{{route('paintings')}}">AUCTION</a>
+                            </li>
+
                             <li class="line"><a class="out animsition-link" href="contact.php">CONTACT</a></li>
                         </ul>
                     </nav>

@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/settings', 'UserSettingsController@index')->name('settings');
     Route::patch('/settings/basic', 'UserSettingsController@basicSettingsUpdate')->name('settings.basic');
+    Route::put('/settings/email', 'UserSettingsController@emailSettingsUpdate')->name('settings.email');
+    Route::put('/settings/password', 'UserSettingsController@passwordSettingsUpdate')->name('settings.password');
 });
 
 

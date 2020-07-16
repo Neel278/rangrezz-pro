@@ -108,7 +108,7 @@ Rangrezz | Settings
                 <h4 class="modal-title" id="defaultModalLabel1">Change Email</h4>
             </div>
             <div class="modal-body">
-                <form class="p-5" action="" method="post" name="myForm">
+                <form class="p-5" action="{{route('settings.email')}}" method="post" name="myForm">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -122,7 +122,7 @@ Rangrezz | Settings
                         <label for="password">Password: </label>
                         <div class="form-line">
                             <input type="password" class="form-control"
-                                placeholder="Enter Your Password To Change Details" id="password" name="password"
+                                placeholder="Enter Your Password To Change Details" id="password" name="new_password"
                                 required>
                         </div>
                     </div>
@@ -177,7 +177,7 @@ Rangrezz | Settings
                     <div class="form-group">
                         <label for="Enter your last name"> New Password: </label>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" id="npass" required>
+                            <input type="password" class="form-control" name="new_password" id="npass" required>
                         </div>
                     </div>
 
