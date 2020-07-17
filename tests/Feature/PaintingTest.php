@@ -2,12 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\AddNewBid;
-use App\Paintings;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use Livewire;
 
 class PaintingTest extends TestCase
 {
