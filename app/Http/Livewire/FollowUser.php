@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Follow;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class FollowUser extends Component
@@ -13,7 +15,15 @@ class FollowUser extends Component
     }
     public function follow()
     {
-        //
+        $follow = DB::table('follows')->where([['follower_id', auth()->id()], ['followed_id', $this->followed_id]])->first();
+        if ($follow) {
+            Follow::where('id', $follow->id)->delete();
+        } else {
+            Follow::create([
+                'followed_id' => $this->followed_id,
+                'follower_id' => auth()->id(),
+            ]);
+        }
     }
     public function render()
     {
