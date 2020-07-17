@@ -52,4 +52,17 @@ class LivewireTests extends TestCase
             ->call('likes');
         $this->assertTrue(Like::where([['painting_id', $painting->id], ['user_id', auth()->id()]])->exists());
     }
+    /** @test **/
+    public function an_authenticated_user_can_see_follow_user_button()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create();
+        $this->get('/paintings')->assertSeeLivewire('follow-user');
+    }
+    /** @test **/
+    public function an_authenticated_user_can_follow_the_paintings_creator()
+    {
+        $this->withoutExceptionHandling();
+    }
 }

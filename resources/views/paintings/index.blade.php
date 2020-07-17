@@ -46,7 +46,7 @@ Rangrezz | Auctions
                                         <td>{{ date("d/m/y",strtotime($painting->ending_date)) }}</td>
                                         @if (auth()->id() !== $painting->owner_id)
                                         @livewire('add-like',['painting_id'=>$painting->id])
-                                        {{-- @livewire('follow-user',['painting_id'=>$painting->owner_id]) --}}
+                                        @livewire('follow-user',['painting_id'=>$painting->owner_id])
                                         {{-- @livewire('add-comment',['painting_id'=>$painting->id]) --}}
                                         <td>
                                             <a href="{{ $painting->path() }}">
