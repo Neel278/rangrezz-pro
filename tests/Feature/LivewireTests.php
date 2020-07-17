@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\AddLike;
+use App\Http\Livewire\FollowUser;
 use App\Like;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -64,5 +65,11 @@ class LivewireTests extends TestCase
     public function an_authenticated_user_can_follow_the_paintings_creator()
     {
         $this->withoutExceptionHandling();
+        Livewire::actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create();
+        Livewire::test(FollowUser::class, ['followed_id' => $painting->owner_id])
+            ->assertSeeHtml('<a href="#" wire:click.prevent=follow><i class="material-icons">person</i></a>')
+            ->call('follow');
+        $this->assertTrue(Follow::where([['followed_id', $painting->owner_id], ['follower_id', auth()->id()]])->exists());
     }
 }

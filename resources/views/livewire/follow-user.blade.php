@@ -1,3 +1,3 @@
-<div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+<div style="margin-top: 50%">
+    <a href="#" wire:click.prevent=follow><i class="material-icons">person_outline</i></a>
 </div>

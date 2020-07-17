@@ -6,7 +6,12 @@ use Livewire\Component;
 
 class FollowUser extends Component
 {
-    public function mount()
+    public $followed_id;
+    public function mount($followed_id)
+    {
+        $this->followed_id = $followed_id;
+    }
+    public function follow()
     {
         //
     }

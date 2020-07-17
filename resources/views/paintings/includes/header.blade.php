@@ -85,11 +85,11 @@
                     <!-- #END# Call Search -->
                     <!-- Notifications -->
                     <li class="dropdown">
-                        <!-- <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        {{-- <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
                             <span class="label-count">7</span>
-                        </a>-->
-                        <ul class="dropdown-menu">
+                        </a> --}}
+                        {{-- <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
                             <li class="body">
                                 <ul class="menu">
@@ -189,7 +189,7 @@
                             <li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </li>
                     <!-- #END# Notifications -->
                     <!-- Tasks -->
