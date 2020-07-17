@@ -124,4 +124,40 @@ class PaintingTest extends TestCase
         $attributes = factory('App\Paintings')->raw(['ending_date' => '']);
         $this->post('/paintings', $attributes)->assertSessionHasErrors('ending_date');
     }
+    /** @test **/
+    public function a_painting_can_automatically_get_sold()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create();
+        $painting->painting = $painting->id;
+        // $painting->ending_date = "2020-07-17";
+        $this->put('/paintings/update', $painting->toArray())
+            ->assertRedirect('/paintings')
+            ->assertSessionHas('success_painting');
+    }
+    /** @test **/
+    public function a_painting_can_automatically_get_sold_only_if_ending_date_is_passed()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create();
+        $this->get($painting->path())->assertStatus(200);
+        $painting->painting = $painting->id;
+        $painting->ending_date = "2020-08-17";
+        $this->put('/paintings/update', $painting->toArray())
+            ->assertRedirect($painting->path())
+            ->assertSessionHasErrors('error_painting_sold');
+    }
+    /** @test **/
+    public function after_a_painting_is_sold_you_should_see_it_in_database()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create();
+        $this->get($painting->path())->assertStatus(200);
+        $painting->painting = $painting->id;
+        $this->put('/paintings/update', $painting->toArray());
+        $this->assertDatabaseCount('solds', 1);
+    }
 }

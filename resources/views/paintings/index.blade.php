@@ -28,8 +28,8 @@ Rangrezz | Auctions
                                         <th>Painting</th>
                                         <th>Title</th>
                                         <th>Price</th>
-                                        <th>Ending date</th>
-                                        <th>Like</th>
+                                        <th>Ending</th>
+                                        <th>Actions</th>
                                         <th>Bid</th>
                                     </tr>
                                 </thead>
@@ -43,9 +43,11 @@ Rangrezz | Auctions
                                         </td>
                                         <td>{{ $painting->title }}</td>
                                         <td>{{ $painting->starting_price }}$</td>
-                                        <td>{{ date("d/m/y g:i A",strtotime($painting->ending_date)) }}</td>
+                                        <td>{{ date("d/m/y",strtotime($painting->ending_date)) }}</td>
                                         @if (auth()->id() !== $painting->owner_id)
                                         @livewire('add-like',['painting_id'=>$painting->id])
+                                        {{-- @livewire('follow-user',['painting_id'=>$painting->owner_id]) --}}
+                                        {{-- @livewire('add-comment',['painting_id'=>$painting->id]) --}}
                                         <td>
                                             <a href="{{ $painting->path() }}">
                                                 <button type="button" class="btn btn-info">

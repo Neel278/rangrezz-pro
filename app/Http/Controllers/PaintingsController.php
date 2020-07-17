@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Like;
 use App\Paintings;
+use App\Sold;
 use Illuminate\Http\Request;
 
 class PaintingsController extends Controller
@@ -15,7 +16,7 @@ class PaintingsController extends Controller
      */
     public function index()
     {
-        $paintings = Paintings::latest()->get();
+        $paintings = Paintings::where('status', false)->latest()->get();
 
         return view('paintings.index', compact('paintings'));
     }
@@ -63,5 +64,25 @@ class PaintingsController extends Controller
 
         //redirect
         return redirect('/paintings');
+    }
+    public function update()
+    {
+        // dd(request('painting'));
+        $painting = Paintings::find(request('painting'));
+        if (date("Y-m-d") > date(request('ending_date'))) {
+            // dd('here');
+            $painting->update([
+                'status' => 1
+            ]);
+            Sold::create([
+                'owner_id' => $painting->owner_id,
+                'painting_id' => $painting->id,
+                'customer_id' => $painting->bidder_id == 0 ? $painting->owner_id : $painting->bidder_id,
+            ]);
+            return redirect()->route('paintings')->with('success_painting', 'Painting Sold');
+        } else {
+            // dd('there');
+            return redirect()->back()->withErrors(['error_painting_sold' => 'Ending Date has not been finished yet !!']);;
+        }
     }
 }

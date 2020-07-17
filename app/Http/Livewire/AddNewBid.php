@@ -24,6 +24,7 @@ class AddNewBid extends Component
             // dd($this->newBid);
             $this->painting->update([
                 'bidding_price' => $this->newBid,
+                'bidder_id' => auth()->id()
             ]);
             $this->newBid = $this->painting->bidding_price + 1;
             session()->flash('message', 'Bidded successfully updated.');

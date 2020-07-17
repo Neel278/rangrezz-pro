@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/paintings', 'PaintingsController@index')->name('paintings');
     Route::get('/paintings/create', 'PaintingsController@create')->name('add.painting');
     Route::get('/paintings/{painting}', 'PaintingsController@show')->name('show.painting');
+    Route::put('/paintings/update', 'PaintingsController@update')->name('update.painting');
     Route::post('/paintings', 'PaintingsController@store')->name('store.painting');
 
     Route::get('/settings', 'UserSettingsController@index')->name('settings');
