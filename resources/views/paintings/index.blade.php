@@ -13,65 +13,85 @@ Rangrezz | Auctions
 
         <!-- Body Copy -->
         <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {{-- ======================================================================================================================================== --}}
+            <div class="col-xs-12 col-sm-12">
                 <div class="card">
-                    <div class="header">
-                        <h2>
-                            Current Auctions
-                        </h2>
-                    </div>
                     <div class="body">
-                        <div class="body table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Painting</th>
-                                        <th>Title</th>
-                                        <th>Price</th>
-                                        <th>Ending</th>
-                                        <th>Actions</th>
-                                        <th>Bid</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{-- {{dd($likes)}} --}}
+                        <div>
+                            {{-- <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                        data-toggle="tab">Home</a></li>
+                                <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab"
+                                        data-toggle="tab">Profile Settings</a></li>
+                                <li role="presentation"><a href="#change_password_settings" aria-controls="settings"
+                                        role="tab" data-toggle="tab">Change Password</a></li>
+                            </ul> --}}
+
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                    {{-- ------------------------------------------------------ --}}
                                     @forelse($paintings as $painting)
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset($painting->painting_pic) }}" alt="painting"
-                                                style="height: 170px; width: 200px;">
-                                        </td>
-                                        <td>{{ $painting->title }}</td>
-                                        <td>{{ $painting->starting_price }}$</td>
-                                        <td>{{ date("d/m/y",strtotime($painting->ending_date)) }}</td>
-                                        @if (auth()->id() !== $painting->owner_id)
-                                        <td align="center">
-                                            @livewire('add-like',['painting_id'=>$painting->id])
-                                            @livewire('follow-user',['followed_id'=>$painting->owner_id])
-                                        </td>
-                                        {{-- @livewire('add-comment',['painting_id'=>$painting->id]) --}}
-                                        <td>
-                                            <a href="{{ $painting->path() }}">
-                                                <button type="button" class="btn btn-info">
-                                                    Bid
-                                                </button>
-                                            </a>
-                                        </td>
-                                        @endif
-                                    </tr>
-                                    @empty
-                                    <tr>
-                                        <td>
-                                            <h4>No Paintings Avilable Right Now!!</h4>
-                                        </td>
-                                    </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
+                                    <div class="panel panel-default panel-post">
+                                        <div class="panel-heading">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <a href="#">
+                                                        <img src="http://lorempixel/50/50" />
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">
+                                                        <a
+                                                            href="#">{{ $painting->owner->firstname." ".$painting->owner->lastname }}</a>
+                                                    </h4>
+                                                    Shared publicly - {{ $painting->created_at }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="post">
+                                                <div class="post-heading">
+                                                    <p>{{ $painting->title }}</p>
+                                                </div>
+                                                <div class="post-content">
+                                                    <a
+                                                        href="{{ $painting->owner_id !== auth()->id() ? $painting->path() : "#" }}">
+                                                        <img src="{{ asset($painting->painting_pic) }}" height="400px"
+                                                            width="947px" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <ul>
+                                                @if (auth()->id() !== $painting->owner_id)
+                                                <li>
+                                                    @livewire('add-like',['painting_id'=>$painting->id])
+                                                </li>
+                                                <li>
+                                                    @livewire('follow-user',['followed_id'=>$painting->owner_id])
+                                                </li>
+                                                <li>
+                                                </li>
+                                                @endif
+                                            </ul>
+
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <p>{{ $painting->description }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                    {{-- --------------------------------------------------------------- --}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {{-- ================================================================================================ --}}
         </div>
         <!-- #END# Body Copy -->
     </div>
