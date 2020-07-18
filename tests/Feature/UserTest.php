@@ -26,7 +26,7 @@ class UserTest extends TestCase
             ->assertSee(auth()->user()->firstname)
             ->assertSee(auth()->user()->lastname)
             ->assertSee(auth()->user()->address)
-            ->assertSee(auth()->user()->address)
+            ->assertSee(auth()->user()->username)
             ->assertSee(auth()->user()->email);
     }
     /** @test **/
@@ -121,6 +121,12 @@ class UserTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $this->actingAs(factory('App\User')->create());
-        $this->get('/profile')->assertStatus(200);
+        $this->get('/profile')
+            ->assertSee(auth()->user()->firstname)
+            ->assertSee(auth()->user()->lastname)
+            ->assertSee(auth()->user()->address)
+            ->assertSee(auth()->user()->birthdate)
+            ->assertSee(auth()->user()->email)
+            ->assertSee(auth()->user()->username);
     }
 }
