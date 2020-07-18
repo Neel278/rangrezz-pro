@@ -1,4 +1,4 @@
-@extends('paintings.layouts.master')
+@extends('layouts.app')
 
 @section('title')
 Rangrezz | Buy Painting
@@ -57,7 +57,33 @@ Rangrezz | Buy Painting
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+                        {{-- comment part start --}}
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:10px">
+                            <h3>Comments:</h3>
+                            <div>
+                                <textarea name="body" cols="30" rows="3" class="form-control"
+                                    placeholder="leave a comment" v-model="commentBox"></textarea>
+                                <button class="btn btn-success" style="margin-top: 10px"
+                                    @click.prevent="postComment">Save Comment</button>
+                            </div>
+
+                            <div class="media" v-for="comment in comments">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="http://placeimg.com/80/80" alt="image" class="media-object">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">@{{comment.user.username}}
+                                        said...</h4>
+                                    <p>
+                                        @{{comment.body}}
+                                    </p>
+                                    <span>on @{{ comment.created_at }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- comment part end --}}
                     </div>
                 </div>
             </div>
@@ -98,5 +124,54 @@ document.getElementById("sold-form").submit();
 
 }
 }, 1000);
+    </script>
+    @endsection
+
+    @section('scripts')
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                comments: {},
+                commentBox: '',
+                painting: {!! $painting->toJson() !!},
+                user: {!! Auth::check() ? auth()->user()->toJson() : 'null' !!},
+            },
+            mounted(){
+                this.getComments();
+                this.listen();
+            },
+            methods: {
+                getComments() {
+                    axios.get(`/api/paintings/${this.painting.id}/comments`)
+                    .then((response)=>{
+                        this.comments = response.data;
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+                },
+                postComment() {
+                    axios.post(`/api/paintings/${this.painting.id}/comment`,{
+                        api_token: this.user.api_token,
+                        body: this.commentBox
+                    })
+                    .then((response) => {
+                        this.comments.unshift(response.data);
+                        this.commentBox = "";
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+                },
+                listen() {
+                    Echo.channel('painting.'+this.painting.id)
+                        .listen('NewComment',(comment)=>{
+                            this.comments.unshift(comment);
+                        });
+                }
+            }
+        });
+
     </script>
     @endsection

@@ -39,6 +39,10 @@
 
 <!-- Demo Js -->
 <script src="{{asset('dashboard-asset/js/demo.js')}}"></script>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+@yield('scripts')
+
 @livewireScripts
 </body>
 
