@@ -83,7 +83,11 @@ Rangrezz | Auctions
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                    @empty
+                                    <div>
+                                        <h4>Nothing To show Yet!!</h4>
+                                    </div>
+                                    @endforelse
                                     {{-- --------------------------------------------------------------- --}}
                                 </div>
                             </div>

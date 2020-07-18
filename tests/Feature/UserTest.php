@@ -121,6 +121,13 @@ class UserTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $this->actingAs(factory('App\User')->create());
+        $this->get('/profile')->assertStatus(200);
+    }
+    /** @test **/
+    public function an_autheticated_user_can_see_their_profile_details()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
         $this->get('/profile')
             ->assertSee(auth()->user()->firstname)
             ->assertSee(auth()->user()->lastname)
