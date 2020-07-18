@@ -116,4 +116,11 @@ class UserTest extends TestCase
             ->assertRedirect('/settings')
             ->assertSessionHasErrors('entered_old_password');
     }
+    /** @test **/
+    public function an_autheticated_user_can_see_their_profile()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $this->get('/profile')->assertStatus(200);
+    }
 }
