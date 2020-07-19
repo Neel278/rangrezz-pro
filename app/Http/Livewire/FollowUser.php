@@ -9,6 +9,9 @@ use Livewire\Component;
 class FollowUser extends Component
 {
     public $followed_id;
+
+    protected  $listeners = ['following' => 'following'];
+
     public function mount($followed_id)
     {
         $this->followed_id = $followed_id;

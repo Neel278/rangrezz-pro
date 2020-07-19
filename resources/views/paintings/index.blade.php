@@ -35,14 +35,15 @@ Rangrezz | Auctions
                                         <div class="panel-heading">
                                             <div class="media">
                                                 <div class="media-left">
-                                                    <a href="#">
+                                                    <a
+                                                        href="{{ $painting->owner_id === auth()->id() ? '/profile' : $painting->owner->profile_path() }}">
                                                         <img src="http://lorempixel/50/50" />
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
                                                     <h4 class="media-heading">
                                                         <a
-                                                            href="#">{{ $painting->owner->firstname." ".$painting->owner->lastname }}</a>
+                                                            href="{{ $painting->owner_id === auth()->id() ? '/profile' : $painting->owner->profile_path() }}">{{ $painting->owner->firstname." ".$painting->owner->lastname }}</a>
                                                     </h4>
                                                     Shared publicly - {{ $painting->created_at }}
                                                 </div>
@@ -66,7 +67,7 @@ Rangrezz | Auctions
                                             <ul>
                                                 @if (auth()->id() !== $painting->owner_id)
                                                 <li>
-                                                    @livewire('add-like',['painting_id'=>$painting->id])
+                                                    @livewire('add-like',['painting_id'=>$painting->id,'total_likes'=>$painting->likes()->count()])
                                                 </li>
                                                 <li>
                                                     @livewire('follow-user',['followed_id'=>$painting->owner_id])

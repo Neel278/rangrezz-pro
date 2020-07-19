@@ -19,7 +19,7 @@ class Paintings extends Model
     }
     public function likes()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class, 'painting_id');
     }
     public function comments()
     {

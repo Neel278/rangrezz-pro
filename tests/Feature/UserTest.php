@@ -158,4 +158,11 @@ class UserTest extends TestCase
             ->assertSee($user->email)
             ->assertSee($user->username);
     }
+    /** @test **/
+    public function an_autheticated_user_cannot_see_his_profile_same_as_other_profile_path()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs($user = factory('App\User')->create());
+        $this->get($user->profile_path())->assertRedirect('/profile');
+    }
 }

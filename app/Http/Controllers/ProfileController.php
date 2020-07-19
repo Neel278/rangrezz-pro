@@ -15,8 +15,12 @@ class ProfileController extends Controller
     }
     public function show($username)
     {
-        $user = User::whereUsername($username)->firstOrFail();
-        $paintings = Paintings::where('owner_id', $user->id)->take(2)->get();
-        return view('user.show', compact(['user', 'paintings']));
+        if ($username != auth()->user()->username) {
+            $user = User::whereUsername($username)->firstOrFail();
+            $paintings = Paintings::where('owner_id', $user->id)->take(2)->get();
+            return view('user.show', compact(['user', 'paintings']));
+        } else {
+            return redirect('/profile');
+        }
     }
 }

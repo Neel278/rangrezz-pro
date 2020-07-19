@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    // you can also add an trait and shift this methods in that trait and use it here so complexity gets lower
     use Notifiable;
 
     /**
@@ -47,6 +48,10 @@ class User extends Authenticatable
     public function followed()
     {
         return $this->hasMany(Follow::class, 'follower_id');
+    }
+    public function follower()
+    {
+        return $this->hasMany(Follow::class, 'followed_id');
     }
     public function comments()
     {

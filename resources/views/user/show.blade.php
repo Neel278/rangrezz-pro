@@ -29,19 +29,18 @@ Rangrezz | Auctions
                     <div class="profile-footer">
                         <ul>
                             <li>
+                                <span>Painting</span>
+                                <span>{{ $user->paintings->count() }}</span>
+                            </li>
+                            <li>
+                                <span>Active Paintings</span>
+                                <span>{{ $user->paintings->where('status',0)->count() }}</span>
+                            </li>
+                            <li>
                                 <span>Followers</span>
-                                <span>1.234</span>
-                            </li>
-                            <li>
-                                <span>Following</span>
-                                <span>1.201</span>
-                            </li>
-                            <li>
-                                <span>Friends</span>
-                                <span>14.252</span>
+                                <span>{{ $user->follower->count() }}</span>
                             </li>
                         </ul>
-                        <button class="btn btn-primary btn-lg waves-effect btn-block">FOLLOW</button>
                     </div>
                 </div>
 
@@ -111,14 +110,14 @@ Rangrezz | Auctions
                                         <div class="panel-heading">
                                             <div class="media">
                                                 <div class="media-left">
-                                                    <a href="#">
+                                                    <a href="{{ $user->profile_path() }}">
                                                         <img src="{{ asset('images/staff5.jpg') }}" />
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
                                                     <h4 class="media-heading">
                                                         <a
-                                                            href="#">{{ $painting->owner->firstname." ".$painting->owner->lastname }}</a>
+                                                            href="{{ $user->profile_path() }}">{{ $painting->owner->firstname." ".$painting->owner->lastname }}</a>
                                                     </h4>
                                                     Shared publicly - {{ $painting->created_at }}
                                                 </div>
@@ -142,7 +141,7 @@ Rangrezz | Auctions
                                             <ul>
                                                 @if (auth()->id() !== $painting->owner_id)
                                                 <li>
-                                                    @livewire('add-like',['painting_id'=>$painting->id])
+                                                    @livewire('add-like',['painting_id'=>$painting->id,'total_likes'=>$painting->likes()->count()])
                                                 </li>
                                                 <li>
                                                     @livewire('follow-user',['followed_id'=>$painting->owner_id])
