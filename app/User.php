@@ -61,8 +61,8 @@ class User extends Authenticatable
     {
         return "/profile/{$this->username}";
     }
-    public function purchased_paintings()
-    {
-        return $this->hasMany(Paintings::class, 'bidder_id');
-    }
+    // public function purchased_paintings()
+    // {
+    //     return $this->hasMany(Paintings::class, 'bidder_id');
+    // }
 }

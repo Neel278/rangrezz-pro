@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Routes to see account activities
     Route::get('/activities', 'ActivitiesController@index')->name('activities');
+    Route::get('/activities/solded', 'ActivitiesController@show')->name('solded');
 });
 
 

@@ -171,17 +171,20 @@ class UserTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $this->actingAs(factory('App\User')->create());
-        $this->get('/activities')->assertStatus(200);
+        $this->get('/activities')->assertStatus(200)
+            ->assertSeeInOrder(['Settings', 'Your Auctions', 'Winning Auctions']);
     }
     /** @test **/
     public function on_activity_page_you_can_see_all_the_paintings_that_are_sold()
     {
         $this->withoutExceptionHandling();
         $this->actingAs(factory('App\User')->create());
-        $painting = factory('App\Paintings')->create(['owner_id'=>auth()->id()]);
-        $solded_painting = factory('App\Sold')->create(['owner_id' => auth()->id(),'painting_id'=>$painting->id]);
-        $this->assertDatabaseCount('solds',1);
-        dd($painting,$solded_painting);
-        $this->get('/activities')->assertSee($painting->title);
+        $painting = factory('App\Paintings')->create(['owner_id' => auth()->id(), 'status' => 1]);
+        // dd($painting,$solded_painting);
+        $this->get('/activities/solded')
+            ->assertSee($painting->title)
+            ->assertSee($painting->starting_price)
+            ->assertSee($painting->bidding_price)
+            ->assertSee($painting->ending_date);
     }
 }

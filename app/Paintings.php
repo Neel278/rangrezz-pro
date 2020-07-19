@@ -25,8 +25,8 @@ class Paintings extends Model
     {
         return $this->hasMany('App\Comment');
     }
-    public function bidder()
+    public function customer()
     {
-        return $this->belongsTo(User::class, 'painting_id');
+        return $this->belongsTo(User::class, 'bidder_id');
     }
 }
