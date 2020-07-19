@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/settings/password', 'UserSettingsController@passwordSettingsUpdate')->name('settings.password');
 
     Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::get('/profile/{username}', 'ProfileController@show')->name('user.profile');
 });
 
 

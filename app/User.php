@@ -52,4 +52,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
+    public function profile_path()
+    {
+        return "/profile/{$this->username}";
+    }
 }

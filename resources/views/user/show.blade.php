@@ -13,20 +13,96 @@ Rangrezz | Auctions
 
         <!-- Body Copy -->
         <div class="row clearfix">
+            <div class="col-xs-12 col-sm-3">
+                <div class="card profile-card">
+                    <div class="profile-header">&nbsp;</div>
+                    <div class="profile-body">
+                        <div class="image-area">
+                            <img src="{{ asset('images/staff5.jpg') }}" alt="Profile Image" />
+                        </div>
+                        <div class="content-area">
+                            <h3>{{ $user->username }}</h3>
+                            <p>{{ $user->firstname." ".$user->lastname }}</p>
+                            <p>Welcome Back !!</p>
+                        </div>
+                    </div>
+                    <div class="profile-footer">
+                        <ul>
+                            <li>
+                                <span>Followers</span>
+                                <span>1.234</span>
+                            </li>
+                            <li>
+                                <span>Following</span>
+                                <span>1.201</span>
+                            </li>
+                            <li>
+                                <span>Friends</span>
+                                <span>14.252</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary btn-lg waves-effect btn-block">FOLLOW</button>
+                    </div>
+                </div>
+
+                <div class="card card-about-me">
+                    <div class="header">
+                        <h2>ABOUT ME</h2>
+                    </div>
+                    <div class="body">
+                        <ul>
+                            <li>
+                                <div class="title">
+                                    <i class="material-icons">email</i>
+                                    Email
+                                </div>
+                                <div class="content">
+                                    {{ $user->email }}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="title">
+                                    <i class="material-icons">location_on</i>
+                                    address
+                                </div>
+                                <div class="content">
+                                    {{ $user->address }}
+                                </div>
+                            </li>
+                            {{-- <li>
+                                <div class="title">
+                                    <i class="material-icons">edit</i>
+                                    Skills
+                                </div>
+                                <div class="content">
+                                    <span class="label bg-red">UI Design</span>
+                                    <span class="label bg-teal">JavaScript</span>
+                                    <span class="label bg-blue">PHP</span>
+                                    <span class="label bg-amber">Node.js</span>
+                                </div>
+                            </li> --}}
+                            <li>
+                                <div class="title">
+                                    <i class="material-icons">date_range</i>
+                                    Birth Date
+                                </div>
+                                <div class="content">
+                                    {{ $user->birthdate }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             {{-- ======================================================================================================================================== --}}
-            <div class="col-xs-12 col-sm-12">
+            <div class="col-xs-12 col-sm-9">
                 <div class="card">
                     <div class="body">
                         <div>
-                            {{-- <ul class="nav nav-tabs" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
-                                        data-toggle="tab">Home</a></li>
-                                <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab"
-                                        data-toggle="tab">Profile Settings</a></li>
-                                <li role="presentation"><a href="#change_password_settings" aria-controls="settings"
-                                        role="tab" data-toggle="tab">Change Password</a></li>
-                            </ul> --}}
-
+                                        data-toggle="tab">Recent Paintings</a></li>
+                            </ul>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="home">
                                     {{-- ------------------------------------------------------ --}}
@@ -36,7 +112,7 @@ Rangrezz | Auctions
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
-                                                        <img src="http://lorempixel/50/50" />
+                                                        <img src="{{ asset('images/staff5.jpg') }}" />
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
@@ -85,7 +161,7 @@ Rangrezz | Auctions
                                     </div>
                                     @empty
                                     <div>
-                                        <h4>Nothing To show Yet!!</h4>
+                                        <h4>Nothing to show Yet!!</h4>
                                     </div>
                                     @endforelse
                                     {{-- --------------------------------------------------------------- --}}
@@ -100,12 +176,5 @@ Rangrezz | Auctions
         <!-- #END# Body Copy -->
     </div>
 </section>
-<script type="text/javascript">
-    $(document).ready(function()
-    {
-        $('table').DataTable();
 
-        $('.dataTables_length').css('display','none');
-    });
-</script>
 @endsection

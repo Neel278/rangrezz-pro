@@ -4,12 +4,16 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="{{asset('dashboard-asset/images/user.png')}}" width="48" height="48" alt="User" />
+                <a href="{{ route('profile') }}">
+                    <img src="{{asset('dashboard-asset/images/user.png')}}" width="48" height="48" alt="User" />
+                </a>
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ auth()->user()->firstname." ".auth()->user()->lastname }}</div>
-                <div class="email">{{ auth()->user()->email }}</div>
+                <a href="{{ route('profile') }}">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ auth()->user()->firstname." ".auth()->user()->lastname }}</div>
+                    <div class="email">{{ auth()->user()->email }}</div>
+                </a>
             </div>
         </div>
         <!-- #User Info -->
@@ -24,7 +28,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <i class="material-icons">account_box</i>
                         <span>Dashboard</span>
                     </a>

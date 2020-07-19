@@ -133,7 +133,7 @@ Rangrezz | Auctions
                                                     <a
                                                         href="{{ $painting->owner_id !== auth()->id() ? $painting->path() : "#" }}">
                                                         <img src="{{ asset($painting->painting_pic) }}"
-                                                            class="img-responsive" />
+                                                            class="img-responsive" style="margin: 0 auto;" />
                                                     </a>
                                                 </div>
                                             </div>

@@ -117,7 +117,7 @@ class UserTest extends TestCase
             ->assertSessionHasErrors('entered_old_password');
     }
     /** @test **/
-    public function an_autheticated_user_can_see_their_profile()
+    public function an_autheticated_user_can_see_their_profiles()
     {
         $this->withoutExceptionHandling();
         $this->actingAs(factory('App\User')->create());
@@ -135,5 +135,27 @@ class UserTest extends TestCase
             ->assertSee(auth()->user()->birthdate)
             ->assertSee(auth()->user()->email)
             ->assertSee(auth()->user()->username);
+    }
+    /** @test **/
+    public function an_autheticated_user_can_see_any_other_user_profiles()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $user = factory('App\User')->create();
+        $this->get($user->profile_path())->assertStatus(200);
+    }
+    /** @test **/
+    public function an_autheticated_user_can_see_any_other_user_profile_details()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $user = factory('App\User')->create();
+        $this->get($user->profile_path())
+            ->assertSee($user->firstname)
+            ->assertSee($user->lastname)
+            ->assertSee($user->address)
+            ->assertSee($user->birthdate)
+            ->assertSee($user->email)
+            ->assertSee($user->username);
     }
 }
