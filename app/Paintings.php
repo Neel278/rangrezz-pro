@@ -25,4 +25,8 @@ class Paintings extends Model
     {
         return $this->hasMany('App\Comment');
     }
+    public function bidder()
+    {
+        return $this->belongsTo(User::class, 'painting_id');
+    }
 }

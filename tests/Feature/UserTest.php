@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Paintings;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -164,5 +165,23 @@ class UserTest extends TestCase
         $this->withoutExceptionHandling();
         $this->actingAs($user = factory('App\User')->create());
         $this->get($user->profile_path())->assertRedirect('/profile');
+    }
+    /** @test **/
+    public function an_authenticated_user_can_see_activity_of_their_account()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $this->get('/activities')->assertStatus(200);
+    }
+    /** @test **/
+    public function on_activity_page_you_can_see_all_the_paintings_that_are_sold()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(factory('App\User')->create());
+        $painting = factory('App\Paintings')->create(['owner_id'=>auth()->id()]);
+        $solded_painting = factory('App\Sold')->create(['owner_id' => auth()->id(),'painting_id'=>$painting->id]);
+        $this->assertDatabaseCount('solds',1);
+        dd($painting,$solded_painting);
+        $this->get('/activities')->assertSee($painting->title);
     }
 }
