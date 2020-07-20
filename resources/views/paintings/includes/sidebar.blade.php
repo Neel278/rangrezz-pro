@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('activities') }}">
                         <i class="material-icons">history</i>
                         <span>Activity</span>
                     </a>

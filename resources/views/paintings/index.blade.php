@@ -67,7 +67,7 @@ Rangrezz | Auctions
                                             <ul>
                                                 @if (auth()->id() !== $painting->owner_id)
                                                 <li>
-                                                    @livewire('add-like',['painting_id'=>$painting->id,'total_likes'=>$painting->likes()->count()])
+                                                    @livewire('add-like',['painting_id'=>$painting->id,'total_likes'=>$painting->likes_count])
                                                 </li>
                                                 <li>
                                                     @livewire('follow-user',['followed_id'=>$painting->owner_id])

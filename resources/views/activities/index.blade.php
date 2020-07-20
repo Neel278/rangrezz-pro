@@ -22,10 +22,12 @@
                     <div class="body">
                         <div class="row">
                             <div class="col-md-6" style="text-align: center;">
-                                <a type="button" class="btn btn-info waves-effect" href="#">Your Auctions</a>
+                                <a type="button" class="btn btn-info waves-effect" href="{{ route('solded') }}">Your
+                                    Auctions</a>
                             </div>
                             <div class="col-md-6" style="text-align: center;">
-                                <a type="button" class="btn btn-success waves-effect" href="#">Winning Auctions</a>
+                                <a type="button" class="btn btn-success waves-effect" href="{{ route('won') }}">Winning
+                                    Auctions</a>
                             </div>
                         </div>
                     </div>

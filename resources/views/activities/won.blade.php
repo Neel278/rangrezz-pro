@@ -1,6 +1,6 @@
 @extends('paintings.layouts.master')
 
-@section('title','Rangrezz | Your Art')
+@section('title','Rangrezz | Your Liked Art')
 
 @section('content')
 
@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Your Auctions
+                            Your Winnings
                         </h2>
 
                     </div>
@@ -48,9 +48,9 @@
                                         <td>
                                             {{-- {{dd($painting->customer->username)}} --}}
                                             <a
-                                                href="{{ route('user.profile',['username'=>$painting->customer->username]) }}">
+                                                href="{{ route('user.profile',['username'=>$painting->owner->username]) }}">
                                                 <button type="button" class="btn btn-info">
-                                                    Buyer Profile
+                                                    Seller Profile
                                                 </button>
                                             </a>
                                         </td>

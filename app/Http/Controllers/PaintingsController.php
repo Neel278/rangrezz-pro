@@ -16,7 +16,10 @@ class PaintingsController extends Controller
      */
     public function index()
     {
-        $paintings = Paintings::where('status', false)->latest()->get();
+        $paintings = Paintings::where('status', false)->latest()
+            ->with('owner')
+            ->withCount('likes')
+            ->get();
 
         return view('paintings.index', compact('paintings'));
     }

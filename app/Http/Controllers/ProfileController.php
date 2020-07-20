@@ -9,7 +9,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $paintings = Paintings::where('owner_id', auth()->id())->take(2)->get();
+        $paintings = Paintings::where('owner_id', auth()->id())->take(2)->with('owner')->get();
         return view('user.profile', compact('paintings'));
     }
     public function show($username)
