@@ -124,50 +124,11 @@ Rangrezz | Home
         <h1 class="name">Current Auctions</h1>
     </header>
     <div class="content clearfixs">
-        {{-- ==================================== --}}
-        <?php
-        /**
-        * TODO: Fetching this details from database dynamically
-        */
-    $paintings_details = [
-        [
-            'name' => 'Menaka',
-            'description' => 'Tallenge Menaka and Shakuntala - by Raja Ravi Varma - Large Canvas - Unframed (20 x 30 inches)',
-            'painting_path' => 'images/menaka.JPG',
-            'painting_id' => 'exampleModal'
-        ],
-        [
-            'name' => 'Jatayu Vadh',
-            'description' => 'DollsofIndia Jatayu Vadh - Raja Ravi Varma Painting on Canvas - 33 x 19 inches (KQ91)',
-            'painting_path' => 'images/jatayu.jpg',
-            'painting_id' => 'exampleModal1'
-        ],
-        [
-            'name' => 'Kadambari',
-            'description' => '64 Arts Kadambari(Unframed Canvas Prints) -Raja Ravi Varma Paintings - 24" X 16"',
-            'painting_path' => 'images/kadambari.jpg',
-            'painting_id' => 'exampleModal2'
-        ],
-        [
-            'name' => 'Radha',
-            'description' => 'Tallenge Radha Krishna (Manini Radha) Raja Ravi Varma Mythology Collection Framed Poster (12 x 18 Inches)',
-            'painting_path' => 'images/radha.jpg',
-            'painting_id' => 'exampleModal3'
-        ],
-        [
-            'name' => 'Lakshmi',
-            'description' => 'Lakshmi by Raja Ravi Varma Small Size Premium Quality Unframed Wall Art Print On Canvas (9 inches x 12 inches)',
-            'painting_path' => 'images/Raja_Ravi_Varma,_Goddess_Lakshmi,_1896.jpg',
-            'painting_id' => 'exampleModal4'
-        ],
-    ]
-?>
-        @foreach ($paintings_details as $painting_details)
+        @foreach ($paintings as $painting_details)
 
         <x-modal :paintingDetails="$painting_details" />
 
         @endforeach
-        {{-- ===================================== --}}
     </div>
     <!--content clear fix -->
 </div>

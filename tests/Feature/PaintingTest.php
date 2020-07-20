@@ -32,6 +32,12 @@ class PaintingTest extends TestCase
         $this->post('/paintings', $painting->toArray())->assertRedirect('login');
     }
     /** @test **/
+    public function welcome_page_will_have_newly_added_have_paintings()
+    {
+        $paintings = factory('App\Paintings',5)->create();
+        $this->get('/')->assertSee($paintings[0]->title);
+    }
+    /** @test **/
     // public function a_user_can_add_a_painting()
     // {
     //     $this->withoutExceptionHandling();
