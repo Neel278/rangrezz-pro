@@ -1,4 +1,4 @@
-<p align="center"><img src="./public/img/N-logo.png" width="400"></p>
+<p align="center"><img src="./public/img/neel.png" width="400"></p>
 
 ## Security Vulnerabilities
 
