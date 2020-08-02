@@ -18,6 +18,7 @@ Route::get('/', 'WelcomeController@index')->name('index');
 Route::get('/image-gallery', function () {
     return view('gallery.image-gallery');
 })->name('image-gallery');
+Route::view('/contact', 'gallery.contact')->name('contact');
 
 Route::group(['middleware' => 'auth'], function () {
     //Routes for paintings different purposes

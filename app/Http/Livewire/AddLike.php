@@ -20,14 +20,14 @@ class AddLike extends Component
         $like = DB::table('likes')->where([['user_id', auth()->id()], ['painting_id', $this->painting_id]])->first();
         if ($like) {
             Like::where('id', $like->id)->delete();
-            $this->total_likes -= 1;
+            $this->total_likes--;
         } else {
             Like::create([
                 'user_id' => auth()->id(),
                 'painting_id' => $this->painting_id,
                 'liked' => true
             ]);
-            $this->total_likes += 1;
+            $this->total_likes++;
         }
     }
     public function render()

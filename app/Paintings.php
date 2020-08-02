@@ -9,6 +9,8 @@ class Paintings extends Model
 {
     protected $fillable = ['title', 'subtitle', 'description', 'painting_pic', 'starting_price', 'bidding_price', 'bidder_id', 'status', 'ending_date', 'owner_id'];
 
+    // protected $with = ['likes'];
+
     public function path()
     {
         return "/paintings/{$this->id}";

@@ -113,7 +113,7 @@
                             <li class="line"><a class="out animsition-link" href="{{route('paintings')}}">AUCTION</a>
                             </li>
 
-                            <li class="line"><a class="out animsition-link" href="contact.php">CONTACT</a></li>
+                            <li class="line"><a class="out animsition-link" href="{{route('contact')}}">CONTACT</a></li>
                         </ul>
                     </nav>
                 </div>

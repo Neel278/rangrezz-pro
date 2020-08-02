@@ -18,7 +18,7 @@ class PaintingsController extends Controller
     {
         $paintings = Paintings::where('status', false)->latest()
             ->with('owner')
-            ->withCount('likes')
+            ->with('likes')
             ->get();
 
         return view('paintings.index', compact('paintings'));

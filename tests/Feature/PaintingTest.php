@@ -34,7 +34,7 @@ class PaintingTest extends TestCase
     /** @test **/
     public function welcome_page_will_have_newly_added_have_paintings()
     {
-        $paintings = factory('App\Paintings',5)->create();
+        $paintings = factory('App\Paintings', 5)->create();
         $this->get('/')->assertSee($paintings[0]->title);
     }
     /** @test **/
@@ -162,5 +162,11 @@ class PaintingTest extends TestCase
         $painting->painting = $painting->id;
         $this->put('/paintings/update', $painting->toArray());
         $this->assertDatabaseCount('solds', 1);
+    }
+    /** @test **/
+    public function an_unauthenticated_user_can_see_contact_page()
+    {
+        $this->withoutExceptionHandling();
+        $this->get('/contact')->assertStatus(200);
     }
 }
