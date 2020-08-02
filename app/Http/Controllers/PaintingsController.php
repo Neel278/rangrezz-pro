@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Like;
+use App\Mail\PaintingAdded;
 use App\Paintings;
 use App\Sold;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PaintingsController extends Controller
 {
@@ -63,7 +65,10 @@ class PaintingsController extends Controller
         }
         // $validAttr['owner_id'] = auth()->id();
 
-        auth()->user()->paintings()->create($validAttr);
+        $painting = auth()->user()->paintings()->create($validAttr);
+
+        Mail::to(auth()->user()->email)
+            ->send(new PaintingAdded($painting));
 
         //redirect
         return redirect('/paintings');
