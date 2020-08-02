@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Like;
 use App\Mail\PaintingAdded;
+use App\Mail\PaintingSold;
 use App\Paintings;
 use App\Sold;
 use Illuminate\Http\Request;
@@ -87,6 +88,10 @@ class PaintingsController extends Controller
                 'painting_id' => $painting->id,
                 'customer_id' => $painting->bidder_id == 0 ? $painting->owner_id : $painting->bidder_id,
             ]);
+
+            Mail::to($painting->owner->email)
+                ->send(new PaintingSold($painting));
+
             return redirect()->route('paintings')->with('success_painting', 'Painting Sold');
         } else {
             // dd('there');
