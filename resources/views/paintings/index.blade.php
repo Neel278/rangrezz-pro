@@ -45,7 +45,7 @@ Rangrezz | Auctions
                                                         <a
                                                             href="{{ $painting->owner_id === auth()->id() ? '/profile' : $painting->owner->profile_path() }}">{{ $painting->owner->firstname." ".$painting->owner->lastname }}</a>
                                                     </h4>
-                                                    Shared publicly - {{ $painting->created_at }}
+                                                    Shared publicly - {{ $painting->created_at->diffForHumans() }}
                                                 </div>
                                             </div>
                                         </div>

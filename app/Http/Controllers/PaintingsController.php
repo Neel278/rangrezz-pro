@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Like;
 use App\Mail\PaintingAdded;
 use App\Mail\PaintingSold;
+use App\Notifications\NotifyPaintingAdded;
 use App\Paintings;
 use App\Sold;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -70,6 +72,11 @@ class PaintingsController extends Controller
 
         Mail::to(auth()->user()->email)
             ->send(new PaintingAdded($painting));
+
+        $followers = auth()->user()->follower;
+        foreach ($followers as $follower) {
+            $follower->notify(new NotifyPaintingAdded($painting->id));
+        }
 
         //redirect
         return redirect('/paintings');
