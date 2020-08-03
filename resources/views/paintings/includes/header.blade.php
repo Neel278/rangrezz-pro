@@ -101,7 +101,8 @@
                                     @foreach (auth()->user()->notifications as $notification)
 
                                     <li>
-                                        <a href="javascript:void(0);">
+                                        <a
+                                            href="{{route('show.painting',['painting'=>$notification->data['painting']])}}">
                                             <div class="icon-circle bg-light-green">
                                                 <i class="material-icons">person_add</i>
                                             </div>
