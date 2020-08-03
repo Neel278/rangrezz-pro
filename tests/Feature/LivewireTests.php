@@ -52,7 +52,7 @@ class LivewireTests extends TestCase
         Livewire::test(AddLike::class, ['painting_id' => $painting->id])
             ->assertSeeHtml('<a href="#" wire:click.prevent=likes><i class="material-icons">favorite_border</i></a>')
             ->call('likes');
-        $this->assertDatabaseCount('likes',1);
+        $this->assertDatabaseCount('likes', 1);
         $this->assertTrue(Like::where([['painting_id', $painting->id], ['user_id', auth()->id()]])->exists());
     }
     /** @test **/
@@ -72,7 +72,7 @@ class LivewireTests extends TestCase
         Livewire::test(FollowUser::class, ['followed_id' => $painting->owner_id])
             ->assertSeeHtml('<a href="#" wire:click.prevent=follow><i class="material-icons">person_outline</i></a>')
             ->call('follow');
-        $this->assertDatabaseCount('follows',1);
+        $this->assertDatabaseCount('follows', 1);
         $this->assertTrue(Follow::where([['followed_id', $painting->owner_id], ['follower_id', auth()->id()]])->exists());
     }
 }
