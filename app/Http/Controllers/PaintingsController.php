@@ -70,12 +70,14 @@ class PaintingsController extends Controller
 
         $painting = auth()->user()->paintings()->create($validAttr);
 
-        Mail::to(auth()->user()->email)
-            ->send(new PaintingAdded($painting));
+        // Mail::to(auth()->user()->email)
+        //     ->send(new PaintingAdded($painting));
 
+        //every follower will get a notification
         $followers = auth()->user()->follower;
         foreach ($followers as $follower) {
-            $follower->notify(new NotifyPaintingAdded($painting->id));
+            $user = User::find($follower->follower_id);
+            $user->notify(new NotifyPaintingAdded($painting->id));
         }
 
         //redirect
