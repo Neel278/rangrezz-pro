@@ -36,6 +36,7 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{asset('dashboard-asset/css/themes/all-themes.css')}}" rel="stylesheet" />
 
+    @yield('styles')
     <style type="text/css" media="screen">
 
     </style>
