@@ -61,8 +61,10 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js">
     </script>
     <script src="https://kit.fontawesome.com/8f51f774c5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{asset('datetimepicker/build/jquery.datetimepicker.min.css')}}">
-    <script src="{{asset('datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js">
+    </script>
     <script src="{{asset('validation.js')}}"></script>
     <style type="text/css">
         .fa .fa-envelope-square:hover {
