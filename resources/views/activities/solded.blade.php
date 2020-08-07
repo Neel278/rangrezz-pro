@@ -53,6 +53,13 @@
                                                     Buyer Profile
                                                 </button>
                                             </a>
+                                            <br />
+                                            <br />
+                                            <a href="{{ route('chatting',['painting'=>$painting->id]) }}">
+                                                <button type="button" class="btn btn-info">
+                                                    Chat With Buyer
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
                                     @else

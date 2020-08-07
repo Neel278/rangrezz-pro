@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{username}', 'ProfileController@show')->name('user.profile');
 
     //Routes to chat with bidders or sellers
-    Route::get('/chatting', 'ChattingController@index')->name('chatting');
+    Route::get('/chatting/{painting}', 'ChattingController@index')->name('chatting');
 
     //Routes to see account activities
     Route::get('/activities', 'ActivitiesController@index')->name('activities');
