@@ -20,8 +20,8 @@
                                     <div class="received_withd_msg">
                                         <p>{{ message.message }}</p>
                                         <span class="time_date">
-                                            11:01 AM | June 9</span
-                                        >
+                                            {{ message.messageSentDate }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -29,8 +29,8 @@
                                 <div class="sent_msg">
                                     <p>{{ message.message }}</p>
                                     <span class="time_date">
-                                        11:01 AM | June 9</span
-                                    >
+                                        {{ message.messageSentDate }}
+                                    </span>
                                 </div>
                             </div>
                             <!-- ====================================== -->

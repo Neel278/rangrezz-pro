@@ -43771,7 +43771,9 @@ var render = function() {
                           _vm._v(" "),
                           _c("span", { staticClass: "time_date" }, [
                             _vm._v(
-                              "\n                                        11:01 AM | June 9"
+                              "\n                                        " +
+                                _vm._s(message.messageSentDate) +
+                                "\n                                    "
                             )
                           ])
                         ])
@@ -43783,7 +43785,9 @@ var render = function() {
                         _vm._v(" "),
                         _c("span", { staticClass: "time_date" }, [
                           _vm._v(
-                            "\n                                    11:01 AM | June 9"
+                            "\n                                    " +
+                              _vm._s(message.messageSentDate) +
+                              "\n                                "
                           )
                         ])
                       ])
