@@ -14,12 +14,7 @@ class ChattingTest extends TestCase
     {
         $painting = factory('App\Paintings')->create();
 
-        $this->get('chatting/1')->assertRedirect('login');
-        $this->withoutExceptionHandling();
-
-        $this->actingAs(factory('App\User')->create());
-
-        $this->get('chatting/' . $painting->id)->assertStatus(200);
+        $this->get('chatting/'.$painting->id)->assertRedirect('login');
     }
     /** @test **/
     public function if_a_painting_is_sold_only_than_chatting_is_enable()
