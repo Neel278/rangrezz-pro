@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+//comment routes
 Route::get('/paintings/{painting}/comments', 'CommentController@index');
 
 Route::middleware('auth:api')->group(function () {

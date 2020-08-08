@@ -61,4 +61,8 @@ class User extends Authenticatable
     {
         return "/profile/{$this->username}";
     }
+    public function messages()
+    {
+        return $this->hasMany(Chatting::class);
+    }
 }

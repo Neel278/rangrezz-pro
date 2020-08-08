@@ -31,4 +31,8 @@ class Paintings extends Model
     {
         return $this->belongsTo(User::class, 'bidder_id');
     }
+    public function messages()
+    {
+        return $this->hasMany(Chatting::class);
+    }
 }

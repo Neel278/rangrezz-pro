@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Routes to chat with bidders or sellers
     Route::get('/chatting/{painting}', 'ChattingController@index')->name('chatting');
+    Route::get('/paintings/{painting}/messages', 'ChattingController@show');
+    Route::post('/paintings/{painting}/messages', 'ChattingController@store');
 
     //Routes to see account activities
     Route::get('/activities', 'ActivitiesController@index')->name('activities');

@@ -115,6 +115,7 @@ img {
 .incoming_msg_img {
     display: inline-block;
     width: 6%;
+    margin-bottom: 5px;
 }
 
 .received_msg {
