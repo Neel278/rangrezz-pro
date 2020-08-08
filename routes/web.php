@@ -47,6 +47,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/activities', 'ActivitiesController@index')->name('activities');
     Route::get('/activities/solded', 'ActivitiesController@show')->name('solded');
     Route::get('/activities/won', 'ActivitiesController@won_bids')->name('won');
+
+    //Routes to see payment page
+    Route::get('/payment/{painting}', 'PaymentController@index')->name('payment.index');
 });
 
 
