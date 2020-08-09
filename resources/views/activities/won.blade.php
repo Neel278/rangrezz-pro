@@ -21,6 +21,11 @@
 
                     </div>
                     <div class="body">
+                        @if (Session::has('success'))
+                        <div id="charge-message" class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                        @endif
                         <div class="body table-responsive">
                             <table class="table">
                                 <thead>

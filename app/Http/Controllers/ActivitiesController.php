@@ -21,7 +21,7 @@ class ActivitiesController extends Controller
     }
     public function won_bids()
     {
-        $paintings = Paintings::where([['bidder_id', auth()->id()], ['status', true]])->with('owner')->get();
+        $paintings = Paintings::where([['bidder_id', auth()->id()], ['status', true], ['solded', false]])->with('owner')->get();
         return view('activities.won', compact('paintings'));
     }
 }

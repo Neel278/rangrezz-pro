@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Routes to see payment page
     Route::get('/payment/{painting}', 'PaymentController@index')->name('payment.index');
+    Route::post('/checkout/{painting}', 'PaymentController@store')->name('checkout');
 });
 
 

@@ -25,6 +25,7 @@ class CreatePaintingsTable extends Migration
             $table->integer('bidder_id')->default('0');
             $table->boolean('status')->default(false);
             $table->string('ending_date');
+            $table->boolean('solded')->default(false);
             $table->timestamps();
 
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
